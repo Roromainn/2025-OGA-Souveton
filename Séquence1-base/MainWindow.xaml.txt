@@ -1,0 +1,16 @@
+﻿
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <Button Content="Add a new student" Padding="10" Margin="20" />
+            <Button Content="Import students" Padding="10" Margin="20" />
+            <Button Content="Add absences" Padding="10" Margin="20" />
+            <Button Content="Resume absences" Padding="10" Margin="20"/>
+        </StackPanel>
+        <ListBox Grid.Column="1" Margin="20" /> 
+    </Grid>
+    
+

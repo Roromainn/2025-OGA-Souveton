@@ -1,0 +1,21 @@
+﻿
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Content="Student code :" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        <TextBox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10" FontWeight="Bold"/>
+        <Label Grid.Row="1" Grid.Column="0" Content="First name :" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        <TextBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10"/>
+        <Label Grid.Row="2" Grid.Column="0" Content="Last name :" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        <TextBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10"/>
+        <Button Content="Ok" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10" MinWidth="100" />
+        <Button Content="Cancel" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10" MinWidth="100" />
+    </Grid>

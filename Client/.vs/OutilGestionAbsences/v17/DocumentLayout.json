@@ -1,0 +1,209 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\rs141678\\Desktop\\-2025-OGA-Souveton\\Client\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{66B860B2-E4A9-4FCB-9A50-6072802B7D0D}|OutilGestionAbsences\\OutilGestionAbsences.csproj|c:\\users\\rs141678\\desktop\\-2025-oga-souveton\\client\\outilgestionabsences\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{66B860B2-E4A9-4FCB-9A50-6072802B7D0D}|OutilGestionAbsences\\OutilGestionAbsences.csproj|solutionrelative:outilgestionabsences\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66B860B2-E4A9-4FCB-9A50-6072802B7D0D}|OutilGestionAbsences\\OutilGestionAbsences.csproj|c:\\users\\rs141678\\desktop\\-2025-oga-souveton\\client\\outilgestionabsences\\model\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66B860B2-E4A9-4FCB-9A50-6072802B7D0D}|OutilGestionAbsences\\OutilGestionAbsences.csproj|solutionrelative:outilgestionabsences\\model\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66B860B2-E4A9-4FCB-9A50-6072802B7D0D}|OutilGestionAbsences\\OutilGestionAbsences.csproj|c:\\users\\rs141678\\desktop\\-2025-oga-souveton\\client\\outilgestionabsences\\model\\statsabsences.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66B860B2-E4A9-4FCB-9A50-6072802B7D0D}|OutilGestionAbsences\\OutilGestionAbsences.csproj|solutionrelative:outilgestionabsences\\model\\statsabsences.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66B860B2-E4A9-4FCB-9A50-6072802B7D0D}|OutilGestionAbsences\\OutilGestionAbsences.csproj|c:\\users\\rs141678\\desktop\\-2025-oga-souveton\\client\\outilgestionabsences\\model\\absence.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66B860B2-E4A9-4FCB-9A50-6072802B7D0D}|OutilGestionAbsences\\OutilGestionAbsences.csproj|solutionrelative:outilgestionabsences\\model\\absence.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66B860B2-E4A9-4FCB-9A50-6072802B7D0D}|OutilGestionAbsences\\OutilGestionAbsences.csproj|c:\\users\\rs141678\\desktop\\-2025-oga-souveton\\client\\outilgestionabsences\\model\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66B860B2-E4A9-4FCB-9A50-6072802B7D0D}|OutilGestionAbsences\\OutilGestionAbsences.csproj|solutionrelative:outilgestionabsences\\model\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66B860B2-E4A9-4FCB-9A50-6072802B7D0D}|OutilGestionAbsences\\OutilGestionAbsences.csproj|c:\\users\\rs141678\\desktop\\-2025-oga-souveton\\client\\outilgestionabsences\\model\\coursedetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66B860B2-E4A9-4FCB-9A50-6072802B7D0D}|OutilGestionAbsences\\OutilGestionAbsences.csproj|solutionrelative:outilgestionabsences\\model\\coursedetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66B860B2-E4A9-4FCB-9A50-6072802B7D0D}|OutilGestionAbsences\\OutilGestionAbsences.csproj|c:\\users\\rs141678\\desktop\\-2025-oga-souveton\\client\\outilgestionabsences\\view\\studentview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{66B860B2-E4A9-4FCB-9A50-6072802B7D0D}|OutilGestionAbsences\\OutilGestionAbsences.csproj|solutionrelative:outilgestionabsences\\view\\studentview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66B860B2-E4A9-4FCB-9A50-6072802B7D0D}|OutilGestionAbsences\\OutilGestionAbsences.csproj|c:\\users\\rs141678\\desktop\\-2025-oga-souveton\\client\\outilgestionabsences\\view\\studentabsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{66B860B2-E4A9-4FCB-9A50-6072802B7D0D}|OutilGestionAbsences\\OutilGestionAbsences.csproj|solutionrelative:outilgestionabsences\\view\\studentabsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66B860B2-E4A9-4FCB-9A50-6072802B7D0D}|OutilGestionAbsences\\OutilGestionAbsences.csproj|c:\\users\\rs141678\\desktop\\-2025-oga-souveton\\client\\outilgestionabsences\\view\\resumeabsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{66B860B2-E4A9-4FCB-9A50-6072802B7D0D}|OutilGestionAbsences\\OutilGestionAbsences.csproj|solutionrelative:outilgestionabsences\\view\\resumeabsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66B860B2-E4A9-4FCB-9A50-6072802B7D0D}|OutilGestionAbsences\\OutilGestionAbsences.csproj|c:\\users\\rs141678\\desktop\\-2025-oga-souveton\\client\\outilgestionabsences\\view\\courseview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{66B860B2-E4A9-4FCB-9A50-6072802B7D0D}|OutilGestionAbsences\\OutilGestionAbsences.csproj|solutionrelative:outilgestionabsences\\view\\courseview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66B860B2-E4A9-4FCB-9A50-6072802B7D0D}|OutilGestionAbsences\\OutilGestionAbsences.csproj|c:\\users\\rs141678\\desktop\\-2025-oga-souveton\\client\\outilgestionabsences\\outilgestionabsences.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{66B860B2-E4A9-4FCB-9A50-6072802B7D0D}|OutilGestionAbsences\\OutilGestionAbsences.csproj|solutionrelative:outilgestionabsences\\outilgestionabsences.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66B860B2-E4A9-4FCB-9A50-6072802B7D0D}|OutilGestionAbsences\\OutilGestionAbsences.csproj|c:\\users\\rs141678\\desktop\\-2025-oga-souveton\\client\\outilgestionabsences\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66B860B2-E4A9-4FCB-9A50-6072802B7D0D}|OutilGestionAbsences\\OutilGestionAbsences.csproj|solutionrelative:outilgestionabsences\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Student.cs",
+              "DocumentMoniker": "C:\\Users\\rs141678\\Desktop\\-2025-OGA-Souveton\\Client\\OutilGestionAbsences\\Model\\Student.cs",
+              "RelativeDocumentMoniker": "OutilGestionAbsences\\Model\\Student.cs",
+              "ToolTip": "C:\\Users\\rs141678\\Desktop\\-2025-OGA-Souveton\\Client\\OutilGestionAbsences\\Model\\Student.cs",
+              "RelativeToolTip": "OutilGestionAbsences\\Model\\Student.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T15:43:19.075Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\rs141678\\Desktop\\-2025-OGA-Souveton\\Client\\OutilGestionAbsences\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "OutilGestionAbsences\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\rs141678\\Desktop\\-2025-OGA-Souveton\\Client\\OutilGestionAbsences\\MainWindow.xaml",
+              "RelativeToolTip": "OutilGestionAbsences\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-03-26T15:40:51.451Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "StatsAbsences.cs",
+              "DocumentMoniker": "C:\\Users\\rs141678\\Desktop\\-2025-OGA-Souveton\\Client\\OutilGestionAbsences\\Model\\StatsAbsences.cs",
+              "RelativeDocumentMoniker": "OutilGestionAbsences\\Model\\StatsAbsences.cs",
+              "ToolTip": "C:\\Users\\rs141678\\Desktop\\-2025-OGA-Souveton\\Client\\OutilGestionAbsences\\Model\\StatsAbsences.cs",
+              "RelativeToolTip": "OutilGestionAbsences\\Model\\StatsAbsences.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAQwC8AAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T15:46:17.035Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Course.cs",
+              "DocumentMoniker": "C:\\Users\\rs141678\\Desktop\\-2025-OGA-Souveton\\Client\\OutilGestionAbsences\\Model\\Course.cs",
+              "RelativeDocumentMoniker": "OutilGestionAbsences\\Model\\Course.cs",
+              "ToolTip": "C:\\Users\\rs141678\\Desktop\\-2025-OGA-Souveton\\Client\\OutilGestionAbsences\\Model\\Course.cs",
+              "RelativeToolTip": "OutilGestionAbsences\\Model\\Course.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T15:56:15.175Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Absence.cs",
+              "DocumentMoniker": "C:\\Users\\rs141678\\Desktop\\-2025-OGA-Souveton\\Client\\OutilGestionAbsences\\Model\\Absence.cs",
+              "RelativeDocumentMoniker": "OutilGestionAbsences\\Model\\Absence.cs",
+              "ToolTip": "C:\\Users\\rs141678\\Desktop\\-2025-OGA-Souveton\\Client\\OutilGestionAbsences\\Model\\Absence.cs",
+              "RelativeToolTip": "OutilGestionAbsences\\Model\\Absence.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T15:56:15.966Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CourseDetails.cs",
+              "DocumentMoniker": "C:\\Users\\rs141678\\Desktop\\-2025-OGA-Souveton\\Client\\OutilGestionAbsences\\Model\\CourseDetails.cs",
+              "RelativeDocumentMoniker": "OutilGestionAbsences\\Model\\CourseDetails.cs",
+              "ToolTip": "C:\\Users\\rs141678\\Desktop\\-2025-OGA-Souveton\\Client\\OutilGestionAbsences\\Model\\CourseDetails.cs",
+              "RelativeToolTip": "OutilGestionAbsences\\Model\\CourseDetails.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T15:56:13.563Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "StudentView.xaml",
+              "DocumentMoniker": "C:\\Users\\rs141678\\Desktop\\-2025-OGA-Souveton\\Client\\OutilGestionAbsences\\View\\StudentView.xaml",
+              "RelativeDocumentMoniker": "OutilGestionAbsences\\View\\StudentView.xaml",
+              "ToolTip": "C:\\Users\\rs141678\\Desktop\\-2025-OGA-Souveton\\Client\\OutilGestionAbsences\\View\\StudentView.xaml",
+              "RelativeToolTip": "OutilGestionAbsences\\View\\StudentView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-03-26T15:48:45.71Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "StudentAbsView.xaml",
+              "DocumentMoniker": "C:\\Users\\rs141678\\Desktop\\-2025-OGA-Souveton\\Client\\OutilGestionAbsences\\View\\StudentAbsView.xaml",
+              "RelativeDocumentMoniker": "OutilGestionAbsences\\View\\StudentAbsView.xaml",
+              "ToolTip": "C:\\Users\\rs141678\\Desktop\\-2025-OGA-Souveton\\Client\\OutilGestionAbsences\\View\\StudentAbsView.xaml",
+              "RelativeToolTip": "OutilGestionAbsences\\View\\StudentAbsView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-03-26T15:48:16.244Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ResumeAbsView.xaml",
+              "DocumentMoniker": "C:\\Users\\rs141678\\Desktop\\-2025-OGA-Souveton\\Client\\OutilGestionAbsences\\View\\ResumeAbsView.xaml",
+              "RelativeDocumentMoniker": "OutilGestionAbsences\\View\\ResumeAbsView.xaml",
+              "ToolTip": "C:\\Users\\rs141678\\Desktop\\-2025-OGA-Souveton\\Client\\OutilGestionAbsences\\View\\ResumeAbsView.xaml",
+              "RelativeToolTip": "OutilGestionAbsences\\View\\ResumeAbsView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-03-26T15:47:33.426Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CourseView.xaml",
+              "DocumentMoniker": "C:\\Users\\rs141678\\Desktop\\-2025-OGA-Souveton\\Client\\OutilGestionAbsences\\View\\CourseView.xaml",
+              "RelativeDocumentMoniker": "OutilGestionAbsences\\View\\CourseView.xaml",
+              "ToolTip": "C:\\Users\\rs141678\\Desktop\\-2025-OGA-Souveton\\Client\\OutilGestionAbsences\\View\\CourseView.xaml",
+              "RelativeToolTip": "OutilGestionAbsences\\View\\CourseView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-03-26T15:46:40.637Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "OutilGestionAbsences.csproj",
+              "DocumentMoniker": "C:\\Users\\rs141678\\Desktop\\-2025-OGA-Souveton\\Client\\OutilGestionAbsences\\OutilGestionAbsences.csproj",
+              "RelativeDocumentMoniker": "OutilGestionAbsences\\OutilGestionAbsences.csproj",
+              "ToolTip": "C:\\Users\\rs141678\\Desktop\\-2025-OGA-Souveton\\Client\\OutilGestionAbsences\\OutilGestionAbsences.csproj",
+              "RelativeToolTip": "OutilGestionAbsences\\OutilGestionAbsences.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-03-26T15:42:36.442Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\rs141678\\Desktop\\-2025-OGA-Souveton\\Client\\OutilGestionAbsences\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "OutilGestionAbsences\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\rs141678\\Desktop\\-2025-OGA-Souveton\\Client\\OutilGestionAbsences\\MainWindow.xaml.cs",
+              "RelativeToolTip": "OutilGestionAbsences\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T15:40:51.399Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

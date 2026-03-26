@@ -1,0 +1,13 @@
+﻿
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="4*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10">
+            <Label Content="Student :" VerticalAlignment="Center" />
+            <TextBlock  HorizontalAlignment="Left" VerticalAlignment="Center" />
+        </StackPanel>
+        <ListBox Grid.Row="1"  Margin="10" />
+    </Grid>
+
