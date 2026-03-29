@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using OutilGestionAbsences.ViewModel;
 
 namespace OutilGestionAbsences
 {
@@ -19,6 +20,31 @@ namespace OutilGestionAbsences
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new MainVM();
+        }
+
+        private void AddStudent_Click(object sender, RoutedEventArgs e)
+        {
+            MainVM vm = (MainVM)DataContext;
+            vm.AddStudent();
+        }
+
+        private void ImportData_Click(object sender, RoutedEventArgs e)
+        {
+            MainVM vm = (MainVM)DataContext;
+            vm.ImportData();
+        }
+
+        private void AddAbsence_Click(object sender, RoutedEventArgs e)
+        {
+            MainVM vm = (MainVM)DataContext;
+            vm.AddAbsence();
+        }
+
+        private void ResumeAbsences_Click(object sender, RoutedEventArgs e)
+        {
+            MainVM vm = (MainVM)DataContext;
+            vm.ResumeAbsences();
         }
     }
 }

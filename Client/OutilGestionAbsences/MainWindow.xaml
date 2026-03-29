@@ -5,18 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OutilGestionAbsences"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Gestion des Absences" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0">
-            <Button Content="Add a new student" Padding="10" Margin="20" />
-            <Button Content="Import students" Padding="10" Margin="20" />
-            <Button Content="Add absences" Padding="10" Margin="20" />
-            <Button Content="Resume absences" Padding="10" Margin="20"/>
+            <Button Content="Add a new student" Padding="10" Margin="20" Click="AddStudent_Click" />
+            <Button Content="Import students" Padding="10" Margin="20" Click="ImportData_Click" />
+            <Button Content="Add absences" Padding="10" Margin="20" Click="AddAbsence_Click" />
+            <Button Content="Resume absences" Padding="10" Margin="20" Click="ResumeAbsences_Click" />
         </StackPanel>
-        <ListBox Grid.Column="1" Margin="20" />
+        <ListBox Grid.Column="1" Margin="20" ItemsSource="{Binding Students}" DisplayMemberPath="LastName" />
     </Grid>
 </Window>

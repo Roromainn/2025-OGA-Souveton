@@ -41,4 +41,6 @@ publish/
 DS_Store
 Thumbs.db
 # WPF specific generated code
-Generated_Code/
+Generated_Code/""  
+"# Visual Studio cache folders"  
+".vs/" 
