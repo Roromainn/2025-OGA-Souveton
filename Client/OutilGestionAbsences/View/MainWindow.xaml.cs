@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using OutilGestionAbsences.View;
+using OutilGestionAbsences.ViewModel;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -8,7 +10,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using OutilGestionAbsences.ViewModel;
 
 namespace OutilGestionAbsences
 {
@@ -21,12 +22,15 @@ namespace OutilGestionAbsences
         {
             InitializeComponent();
             DataContext = new MainVM();
+
         }
 
         private void AddStudent_Click(object sender, RoutedEventArgs e)
         {
             MainVM vm = (MainVM)DataContext;
-            vm.AddStudent();
+            StudentView stdView = new StudentView();
+            vm.AddStudent(stdView.StudentVM.Student);
+            bool? result = stdView.ShowDialog();
         }
 
         private void ImportData_Click(object sender, RoutedEventArgs e)

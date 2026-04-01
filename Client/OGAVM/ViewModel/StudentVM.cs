@@ -1,6 +1,7 @@
 ﻿using ProjetMetier;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -23,32 +24,47 @@ namespace OutilGestionAbsences.ViewModel
         /// Last name of the student
         /// </summary>
         private string lastName;
+
+        /// <summary>
+        /// The student's code
+        /// </summary>
+        private string code;
+
+
+        /// <summary>
+        /// The student itself
+        /// </summary>
+        /// 
+        private Student student;
+
+        private ObservableCollection<Student> students;
         #endregion
 
         #region--Properties--
         public string FirstName
         {
-            get => firstName;
+            get => this.Student.FirstName;
             set
             {
-                firstName = value;
-                NotifyPropertyChanged();
+                this.Student.FirstName = value;
             }
         }
         public string LastName
         {
-            get => lastName;
+            get => this.Student.LastName;
             set
             {
-                lastName = value;
-                NotifyPropertyChanged();
+                this.Student.LastName = value;
             }
         }
+
+        public Student Student { get => student; set => student = value; }
         #endregion
 
         #region--Constructor--
-        public StudentVM()
+        public StudentVM(string code, string lastName, string firstName)
         {
+            this.student = new Student(code,lastName, firstName);
         }
         #endregion
 
@@ -63,9 +79,23 @@ namespace OutilGestionAbsences.ViewModel
         /// <param name="codeEt">Sudent's code</param>
         /// <param name="first">Student first name</param>
         /// <param name="last">Student's last name</param>
-        public void AddStudent(string codeEt, string first, string  last)
+        public void AddStudent(string codeEt, string first, string last)
         {
             Student student = new Student(codeEt, last, first);
+            students.Append(student);
+        }
+
+        public void ListStudent()
+        {
+            for (int i = 0; i < students.Count ; i++)
+            {
+                Student student = students[i];
+            }           
+        }
+
+        public void ValideStudent(Student student)
+        {
+            students.Add(student);
         }
         #endregion
     }

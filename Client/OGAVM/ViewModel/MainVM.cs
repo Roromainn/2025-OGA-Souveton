@@ -4,10 +4,10 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using OutilGestionAbsences.View;
 using ProjetMetier;
 
 namespace OutilGestionAbsences.ViewModel
@@ -30,6 +30,8 @@ namespace OutilGestionAbsences.ViewModel
         /// Selected student in the list
         /// </summary>
         private Student? selectedStudent;
+
+        private StudentVM studentVM ;
         #endregion
 
         #region--Properties--
@@ -58,9 +60,13 @@ namespace OutilGestionAbsences.ViewModel
         #endregion
 
         #region--Constructor--
-        public MainVM()
+        public MainVM(Student selec = null)
         {
             students = new ObservableCollection<Student>();
+            this.selectedStudent = selec;
+            this.studentVM = new StudentVM(selec.Code, selec.LastName, selec.FirstName);
+
+
         }
         #endregion
 
@@ -68,16 +74,17 @@ namespace OutilGestionAbsences.ViewModel
         /// <summary>
         /// Open the view for adding a new student and add it to the list if validated
         /// </summary>
-        public void AddStudent()
+        public void AddStudent(Student student)
         {
-            StudentView studentView = new StudentView();
-            bool? result = studentView.ShowDialog();
-
-            // Si l'utilisateur a validé 
-            if (result == true && studentView.NewStudent != null)
+            if (this.selectedStudent != null)
             {
-                Students.Add(studentView.NewStudent);
+                Students.Add(student);
             }
+        }
+
+        public void ListStudent()
+        {
+
         }
 
         /// <summary>
@@ -85,8 +92,8 @@ namespace OutilGestionAbsences.ViewModel
         /// </summary>
         public void AddAbsence()
         {
-            StudentAbsView studentAbsView = new StudentAbsView();
-            studentAbsView.ShowDialog();
+            //StudentAbsView studentAbsView = new StudentAbsView();
+            //studentAbsView.ShowDialog();
         }
 
         /// <summary>
@@ -94,8 +101,8 @@ namespace OutilGestionAbsences.ViewModel
         /// </summary>
         public void ResumeAbsences()
         {
-            ResumeAbsView studentAbsView = new ResumeAbsView();
-            studentAbsView.ShowDialog();
+            //ResumeAbsView studentAbsView = new ResumeAbsView();
+            //studentAbsView.ShowDialog();
         }
 
         /// <summary>

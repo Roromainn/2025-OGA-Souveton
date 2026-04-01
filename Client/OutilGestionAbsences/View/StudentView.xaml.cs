@@ -2,6 +2,7 @@
 using ProjetMetier;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,26 +23,35 @@ namespace OutilGestionAbsences.View
     public partial class StudentView : Window
     {
         #region--Attributes--
-        /// <summary>
-        /// New student created
-        /// </summary>
-        private Student? newStudent;
+        private StudentVM studentVM;
+
+        private string _code;
+
+        private string _lastName;
+
+        private string _firstName;
         #endregion
 
         #region--Properties--
-        /// <summary>
-        /// New student created
-        /// </summary>
-        public Student? NewStudent
-        {
-            get => newStudent;
-        }
+        public StudentVM StudentVM
+        {  get { return studentVM; } }
+
+        public string Code
+        { get { return _code; } }
+
+        public string LastName
+        { get { return _lastName; } }
+
+        public string FirstName
+        { get { return _firstName; } }
         #endregion
+
 
         #region--Constructor--
         public StudentView()
         {
             InitializeComponent();
+            this.studentVM = new StudentVM(this._code, this._lastName, this._firstName);
         }
         #endregion
 
@@ -51,7 +61,7 @@ namespace OutilGestionAbsences.View
         /// </summary>
         private void ValideStudent(object sender, RoutedEventArgs e)
         {
-            newStudent = new Student(code.Text, last.Text, first.Text);
+            Student newStudent = studentVM.Student;
             this.DialogResult = true;
             this.Close();
         }
@@ -64,6 +74,8 @@ namespace OutilGestionAbsences.View
             this.DialogResult = false;
             this.Close();
         }
+
+
         #endregion
     }
 }
