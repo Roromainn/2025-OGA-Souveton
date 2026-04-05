@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Security.Principal;
@@ -9,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using ProjetMetier;
+using System.Text.Json;
+
 
 namespace OutilGestionAbsences.ViewModel
 {
@@ -55,18 +58,31 @@ namespace OutilGestionAbsences.ViewModel
             {
                 selectedStudent = value;
                 NotifyPropertyChanged();
+                UpdateStudentVM();
+            }
+        }
+
+        /// <summary>
+        /// ViewModel for the currently selected student
+        /// </summary>
+        public StudentVM? StudentVM
+        {
+            get => studentVM;
+            set
+            {
+                studentVM = value;
+                NotifyPropertyChanged();
             }
         }
         #endregion
 
         #region--Constructor--
-        public MainVM(Student selec = null)
+        public MainVM()
         {
             students = new ObservableCollection<Student>();
-            this.selectedStudent = selec;
-            this.studentVM = new StudentVM(selec.Code, selec.LastName, selec.FirstName);
-
-
+            this.selectedStudent = null;
+            this.studentVM = null;
+            ListStudent();
         }
         #endregion
 
@@ -76,7 +92,7 @@ namespace OutilGestionAbsences.ViewModel
         /// </summary>
         public void AddStudent(Student student)
         {
-            if (this.selectedStudent != null)
+            if (student != null)
             {
                 Students.Add(student);
             }
@@ -84,7 +100,34 @@ namespace OutilGestionAbsences.ViewModel
 
         public void ListStudent()
         {
+            string jsonPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "students.json");
+            if (!File.Exists(jsonPath)) 
+                throw new Exception("Fichier étudiant introuvable");
 
+            string json = File.ReadAllText(jsonPath);
+            List<Student>? loadedStudents = JsonSerializer.Deserialize<List<Student>>(json);
+            if (loadedStudents == null) 
+                throw new Exception("Liste d'étudiant vide");
+
+            foreach (var student in loadedStudents)
+            {
+                Students.Add(student);
+            }
+        }
+
+        /// <summary>
+        /// Updates StudentVM when selected student changes
+        /// </summary>
+        private void UpdateStudentVM()
+        {
+            if (selectedStudent != null)
+            {
+                StudentVM = new StudentVM(selectedStudent);
+            }
+            else
+            {
+                StudentVM = null;
+            }
         }
 
         /// <summary>

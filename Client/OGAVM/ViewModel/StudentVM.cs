@@ -47,6 +47,7 @@ namespace OutilGestionAbsences.ViewModel
             set
             {
                 this.Student.FirstName = value;
+                NotifyPropertyChanged();
             }
         }
         public string LastName
@@ -55,6 +56,7 @@ namespace OutilGestionAbsences.ViewModel
             set
             {
                 this.Student.LastName = value;
+                NotifyPropertyChanged();
             }
         }
 
@@ -62,9 +64,10 @@ namespace OutilGestionAbsences.ViewModel
         #endregion
 
         #region--Constructor--
-        public StudentVM(string code, string lastName, string firstName)
+        public StudentVM(Student student)
         {
-            this.student = new Student(code,lastName, firstName);
+            this.student = student;
+            this.students = new ObservableCollection<Student>();
         }
         #endregion
 
@@ -74,7 +77,7 @@ namespace OutilGestionAbsences.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         /// <summary>
-        /// Creates a new student 
+        /// Creates a new student
         /// </summary>
         /// <param name="codeEt">Sudent's code</param>
         /// <param name="first">Student first name</param>
@@ -82,7 +85,7 @@ namespace OutilGestionAbsences.ViewModel
         public void AddStudent(string codeEt, string first, string last)
         {
             Student student = new Student(codeEt, last, first);
-            students.Append(student);
+            students.Add(student);
         }
 
         public void ListStudent()

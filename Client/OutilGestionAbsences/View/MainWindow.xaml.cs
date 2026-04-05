@@ -29,8 +29,11 @@ namespace OutilGestionAbsences
         {
             MainVM vm = (MainVM)DataContext;
             StudentView stdView = new StudentView();
-            vm.AddStudent(stdView.StudentVM.Student);
             bool? result = stdView.ShowDialog();
+            if (result == true && stdView.StudentVM?.Student != null)
+            {
+                vm.AddStudent(stdView.StudentVM.Student);
+            }
         }
 
         private void ImportData_Click(object sender, RoutedEventArgs e)

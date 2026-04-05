@@ -24,34 +24,22 @@ namespace OutilGestionAbsences.View
     {
         #region--Attributes--
         private StudentVM studentVM;
-
-        private string _code;
-
-        private string _lastName;
-
-        private string _firstName;
         #endregion
 
         #region--Properties--
         public StudentVM StudentVM
-        {  get { return studentVM; } }
-
-        public string Code
-        { get { return _code; } }
-
-        public string LastName
-        { get { return _lastName; } }
-
-        public string FirstName
-        { get { return _firstName; } }
+        {
+            get { return studentVM; }
+        }
         #endregion
-
 
         #region--Constructor--
         public StudentView()
         {
             InitializeComponent();
-            this.studentVM = new StudentVM(this._code, this._lastName, this._firstName);
+            Student student = new Student("", "", "");
+            this.studentVM = new StudentVM(student);
+            DataContext = this.studentVM;
         }
         #endregion
 
@@ -61,7 +49,6 @@ namespace OutilGestionAbsences.View
         /// </summary>
         private void ValideStudent(object sender, RoutedEventArgs e)
         {
-            Student newStudent = studentVM.Student;
             this.DialogResult = true;
             this.Close();
         }
@@ -74,8 +61,6 @@ namespace OutilGestionAbsences.View
             this.DialogResult = false;
             this.Close();
         }
-
-
         #endregion
     }
 }
