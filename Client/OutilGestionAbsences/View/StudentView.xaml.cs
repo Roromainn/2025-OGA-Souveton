@@ -2,6 +2,7 @@
 using ProjetMetier;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,19 +23,13 @@ namespace OutilGestionAbsences.View
     public partial class StudentView : Window
     {
         #region--Attributes--
-        /// <summary>
-        /// New student created
-        /// </summary>
-        private Student? newStudent;
+        private StudentVM studentVM;
         #endregion
 
         #region--Properties--
-        /// <summary>
-        /// New student created
-        /// </summary>
-        public Student? NewStudent
+        public StudentVM StudentVM
         {
-            get => newStudent;
+            get { return studentVM; }
         }
         #endregion
 
@@ -42,6 +37,9 @@ namespace OutilGestionAbsences.View
         public StudentView()
         {
             InitializeComponent();
+            Student student = new Student("", "", "");
+            this.studentVM = new StudentVM(student);
+            DataContext = this.studentVM;
         }
         #endregion
 
@@ -51,7 +49,6 @@ namespace OutilGestionAbsences.View
         /// </summary>
         private void ValideStudent(object sender, RoutedEventArgs e)
         {
-            newStudent = new Student(code.Text, last.Text, first.Text);
             this.DialogResult = true;
             this.Close();
         }

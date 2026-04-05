@@ -35,8 +35,10 @@ namespace ProjetMetier
         #endregion
 
         #region--Constructor--
+        public Student() { }
+
         public Student(string code, string lastName, string firstName=null)
-        { 
+        {
             this.code = code;
             this.lastName = lastName;
             this.firstName = firstName;

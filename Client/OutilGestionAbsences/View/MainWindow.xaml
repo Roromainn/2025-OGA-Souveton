@@ -17,6 +17,16 @@
             <Button Content="Add absences" Padding="10" Margin="20" Click="AddAbsence_Click" />
             <Button Content="Resume absences" Padding="10" Margin="20" Click="ResumeAbsences_Click" />
         </StackPanel>
-        <ListBox Grid.Column="1" Margin="20" ItemsSource="{Binding Students}" DisplayMemberPath="LastName" />
+        <ListBox Grid.Column="1" Margin="20" ItemsSource="{Binding Students}"
+                 SelectedItem="{Binding SelectedStudent}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <Run Text="{Binding LastName}" FontWeight="Bold"/>
+                        <Run Text="{Binding FirstName}"/>
+                    </TextBlock>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>

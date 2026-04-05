@@ -1,6 +1,7 @@
 ﻿using ProjetMetier;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -23,32 +24,50 @@ namespace OutilGestionAbsences.ViewModel
         /// Last name of the student
         /// </summary>
         private string lastName;
+
+        /// <summary>
+        /// The student's code
+        /// </summary>
+        private string code;
+
+
+        /// <summary>
+        /// The student itself
+        /// </summary>
+        /// 
+        private Student student;
+
+        private ObservableCollection<Student> students;
         #endregion
 
         #region--Properties--
         public string FirstName
         {
-            get => firstName;
+            get => this.Student.FirstName;
             set
             {
-                firstName = value;
+                this.Student.FirstName = value;
                 NotifyPropertyChanged();
             }
         }
         public string LastName
         {
-            get => lastName;
+            get => this.Student.LastName;
             set
             {
-                lastName = value;
+                this.Student.LastName = value;
                 NotifyPropertyChanged();
             }
         }
+
+        public Student Student { get => student; set => student = value; }
         #endregion
 
         #region--Constructor--
-        public StudentVM()
+        public StudentVM(Student student)
         {
+            this.student = student;
+            this.students = new ObservableCollection<Student>();
         }
         #endregion
 
@@ -58,14 +77,28 @@ namespace OutilGestionAbsences.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         /// <summary>
-        /// Creates a new student 
+        /// Creates a new student
         /// </summary>
         /// <param name="codeEt">Sudent's code</param>
         /// <param name="first">Student first name</param>
         /// <param name="last">Student's last name</param>
-        public void AddStudent(string codeEt, string first, string  last)
+        public void AddStudent(string codeEt, string first, string last)
         {
             Student student = new Student(codeEt, last, first);
+            students.Add(student);
+        }
+
+        public void ListStudent()
+        {
+            for (int i = 0; i < students.Count ; i++)
+            {
+                Student student = students[i];
+            }           
+        }
+
+        public void ValideStudent(Student student)
+        {
+            students.Add(student);
         }
         #endregion
     }

@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using OutilGestionAbsences.View;
 using ProjetMetier;
+using System.Text.Json;
+
 
 namespace OutilGestionAbsences.ViewModel
 {
@@ -30,6 +33,8 @@ namespace OutilGestionAbsences.ViewModel
         /// Selected student in the list
         /// </summary>
         private Student? selectedStudent;
+
+        private StudentVM studentVM ;
         #endregion
 
         #region--Properties--
@@ -53,6 +58,20 @@ namespace OutilGestionAbsences.ViewModel
             {
                 selectedStudent = value;
                 NotifyPropertyChanged();
+                UpdateStudentVM();
+            }
+        }
+
+        /// <summary>
+        /// ViewModel for the currently selected student
+        /// </summary>
+        public StudentVM? StudentVM
+        {
+            get => studentVM;
+            set
+            {
+                studentVM = value;
+                NotifyPropertyChanged();
             }
         }
         #endregion
@@ -61,6 +80,9 @@ namespace OutilGestionAbsences.ViewModel
         public MainVM()
         {
             students = new ObservableCollection<Student>();
+            this.selectedStudent = null;
+            this.studentVM = null;
+            ListStudent();
         }
         #endregion
 
@@ -68,15 +90,43 @@ namespace OutilGestionAbsences.ViewModel
         /// <summary>
         /// Open the view for adding a new student and add it to the list if validated
         /// </summary>
-        public void AddStudent()
+        public void AddStudent(Student student)
         {
-            StudentView studentView = new StudentView();
-            bool? result = studentView.ShowDialog();
-
-            // Si l'utilisateur a validé 
-            if (result == true && studentView.NewStudent != null)
+            if (student != null)
             {
-                Students.Add(studentView.NewStudent);
+                Students.Add(student);
+            }
+        }
+
+        public void ListStudent()
+        {
+            string jsonPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "students.json");
+            if (!File.Exists(jsonPath)) 
+                throw new Exception("Fichier étudiant introuvable");
+
+            string json = File.ReadAllText(jsonPath);
+            List<Student>? loadedStudents = JsonSerializer.Deserialize<List<Student>>(json);
+            if (loadedStudents == null) 
+                throw new Exception("Liste d'étudiant vide");
+
+            foreach (var student in loadedStudents)
+            {
+                Students.Add(student);
+            }
+        }
+
+        /// <summary>
+        /// Updates StudentVM when selected student changes
+        /// </summary>
+        private void UpdateStudentVM()
+        {
+            if (selectedStudent != null)
+            {
+                StudentVM = new StudentVM(selectedStudent);
+            }
+            else
+            {
+                StudentVM = null;
             }
         }
 
@@ -85,8 +135,8 @@ namespace OutilGestionAbsences.ViewModel
         /// </summary>
         public void AddAbsence()
         {
-            StudentAbsView studentAbsView = new StudentAbsView();
-            studentAbsView.ShowDialog();
+            //StudentAbsView studentAbsView = new StudentAbsView();
+            //studentAbsView.ShowDialog();
         }
 
         /// <summary>
@@ -94,8 +144,8 @@ namespace OutilGestionAbsences.ViewModel
         /// </summary>
         public void ResumeAbsences()
         {
-            ResumeAbsView studentAbsView = new ResumeAbsView();
-            studentAbsView.ShowDialog();
+            //ResumeAbsView studentAbsView = new ResumeAbsView();
+            //studentAbsView.ShowDialog();
         }
 
         /// <summary>
