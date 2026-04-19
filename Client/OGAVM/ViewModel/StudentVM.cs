@@ -1,4 +1,4 @@
-﻿using ProjetMetier;
+﻿using OGAMetier.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OutilGestionAbsences.ViewModel
+namespace OGAVM.ViewModel
 {
     public class StudentVM : INotifyPropertyChanged
     {
@@ -43,19 +43,19 @@ namespace OutilGestionAbsences.ViewModel
         #region--Properties--
         public string FirstName
         {
-            get => this.Student.FirstName;
+            get => Student.FirstName;
             set
             {
-                this.Student.FirstName = value;
+                Student.FirstName = value;
                 NotifyPropertyChanged();
             }
         }
         public string LastName
         {
-            get => this.Student.LastName;
+            get => Student.LastName;
             set
             {
-                this.Student.LastName = value;
+                Student.LastName = value;
                 NotifyPropertyChanged();
             }
         }
@@ -67,7 +67,7 @@ namespace OutilGestionAbsences.ViewModel
         public StudentVM(Student student)
         {
             this.student = student;
-            this.students = new ObservableCollection<Student>();
+            students = new ObservableCollection<Student>();
         }
         #endregion
 

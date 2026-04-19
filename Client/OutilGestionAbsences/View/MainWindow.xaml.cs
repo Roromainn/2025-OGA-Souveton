@@ -1,5 +1,6 @@
-﻿using OutilGestionAbsences.View;
-using OutilGestionAbsences.ViewModel;
+﻿using OGAData;
+using OGAVM.ViewModel;
+using OutilGestionAbsences.View;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,7 +22,7 @@ namespace OutilGestionAbsences
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainVM();
+            DataContext = new MainVM(new StudentData());
 
         }
 

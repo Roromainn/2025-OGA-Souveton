@@ -9,11 +9,11 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using ProjetMetier;
 using System.Text.Json;
+using OGAMetier.Models;
+using OGAMetier.Interfaces;
 
-
-namespace OutilGestionAbsences.ViewModel
+namespace OGAVM.ViewModel
 {
     /// <summary>
     /// Deals with the gestion the the differents views and the students list
@@ -35,6 +35,8 @@ namespace OutilGestionAbsences.ViewModel
         private Student? selectedStudent;
 
         private StudentVM studentVM ;
+
+        private readonly IStudentRepository repository;  
         #endregion
 
         #region--Properties--
@@ -77,11 +79,12 @@ namespace OutilGestionAbsences.ViewModel
         #endregion
 
         #region--Constructor--
-        public MainVM()
+        public MainVM(IStudentRepository repository)
         {
+            this.repository = repository;
             students = new ObservableCollection<Student>();
-            this.selectedStudent = null;
-            this.studentVM = null;
+            selectedStudent = null;
+            studentVM = null;
             ListStudent();
         }
         #endregion
@@ -100,19 +103,9 @@ namespace OutilGestionAbsences.ViewModel
 
         public void ListStudent()
         {
-            string jsonPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "students.json");
-            if (!File.Exists(jsonPath)) 
-                throw new Exception("Fichier étudiant introuvable");
-
-            string json = File.ReadAllText(jsonPath);
-            List<Student>? loadedStudents = JsonSerializer.Deserialize<List<Student>>(json);
-            if (loadedStudents == null) 
-                throw new Exception("Liste d'étudiant vide");
-
-            foreach (var student in loadedStudents)
-            {
+            var result = this.repository.ListStudent();
+            foreach (var student in result)
                 Students.Add(student);
-            }
         }
 
         /// <summary>
@@ -159,7 +152,7 @@ namespace OutilGestionAbsences.ViewModel
         /// Flag update for mvvm
         /// </summary>
         /// <param name="propertyName">Name of the property changed</param>
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }

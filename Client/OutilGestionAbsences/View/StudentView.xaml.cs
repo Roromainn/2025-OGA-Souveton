@@ -1,5 +1,5 @@
-﻿using OutilGestionAbsences.ViewModel;
-using ProjetMetier;
+﻿using OGAMetier.Models;
+using OGAVM.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjetMetier
+namespace OGAMetier.Models
 {
     /// <summary>
     /// The course itself

@@ -1,10 +1,11 @@
-﻿using System;
+﻿using OGAMetier.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjetMetier
+namespace OGAMetier.Models
 {
     public class Absence : CourseDetails
     {

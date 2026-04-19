@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjetMetier
+namespace OGAMetier.Models
 {
     /// <summary>
     /// Statitics of the absences of a student 
@@ -23,29 +23,23 @@ namespace ProjetMetier
         int totalDurationUnjustified;
 
         /// <summary>
-        /// Name of the student
-        /// </summary>
-        string studentName;
-
-        /// <summary>
         /// The student
         /// </summary>
         Student student;
         #endregion
 
-        
         #region--Properties--
         public int TotalDuration { get => totalDuration; set => totalDuration = value; }
         public int TotalDurationUnjustified { get => totalDurationUnjustified; set => totalDurationUnjustified = value; }
-        public string StudentName { get => studentName; set => studentName = value; }
+        public string StudentLastName { get => this.student.LastName; set => this.student.LastName = value; }
         #endregion
 
         #region--Constructor--
         public StatsAbsences(Student student, int Duration = 0, int totalUnjustified = 0)
         {
             this.student = student;
-            this.totalDuration = Duration;
-            this.totalDurationUnjustified = totalUnjustified;
+            totalDuration = Duration;
+            totalDurationUnjustified = totalUnjustified;
         }
         #endregion
     }
