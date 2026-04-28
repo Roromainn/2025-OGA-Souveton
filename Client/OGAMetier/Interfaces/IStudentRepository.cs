@@ -12,5 +12,7 @@ namespace OGAMetier.Interfaces
     {
         public ObservableCollection<Student> ListStudent();
 
+        public void SaveStudents(List<Student> students);
+
     }
 }

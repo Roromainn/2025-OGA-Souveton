@@ -17,21 +17,6 @@ namespace OGAVM.ViewModel
 
         #region--Attributes--
         /// <summary>
-        /// First name of the student
-        /// </summary>
-        private string firstName;
-        /// <summary>
-        /// Last name of the student
-        /// </summary>
-        private string lastName;
-
-        /// <summary>
-        /// The student's code
-        /// </summary>
-        private string code;
-
-
-        /// <summary>
         /// The student itself
         /// </summary>
         /// 
@@ -86,14 +71,6 @@ namespace OGAVM.ViewModel
         {
             Student student = new Student(codeEt, last, first);
             students.Add(student);
-        }
-
-        public void ListStudent()
-        {
-            for (int i = 0; i < students.Count ; i++)
-            {
-                Student student = students[i];
-            }           
         }
 
         public void ValideStudent(Student student)

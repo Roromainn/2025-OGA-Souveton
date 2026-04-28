@@ -98,6 +98,7 @@ namespace OGAVM.ViewModel
             if (student != null)
             {
                 Students.Add(student);
+                repository.SaveStudents(students.ToList());
             }
         }
 

@@ -31,5 +31,12 @@ namespace OGAData
             }
             return resultat;
         }
+
+        public void SaveStudents(List<Student> students)
+        {
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "students.json");
+            string json = JsonSerializer.Serialize(students);
+            File.WriteAllText(path, json);
+        }
     }
 }
