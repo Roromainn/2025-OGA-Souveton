@@ -1,4 +1,5 @@
-﻿using OGAData;
+﻿using Microsoft.Win32;
+using OGAData;
 using OGAVM.ViewModel;
 using OutilGestionAbsences.View;
 using System.Text;
@@ -39,8 +40,19 @@ namespace OutilGestionAbsences
 
         private void ImportData_Click(object sender, RoutedEventArgs e)
         {
-            MainVM vm = (MainVM)DataContext;
-            vm.ImportData();
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            openFileDialog.Filter = "Fichiers CSV (*.csv)|*.csv";
+            openFileDialog.DefaultExt = ".csv";
+            bool? result = openFileDialog.ShowDialog();
+
+            if (result == true)
+            {
+                string filePath = openFileDialog.FileName;
+
+                MainVM vm = (MainVM)DataContext;
+                vm.ImportData(filePath);
+            }
         }
 
         private void AddAbsence_Click(object sender, RoutedEventArgs e)

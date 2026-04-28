@@ -145,9 +145,28 @@ namespace OGAVM.ViewModel
         /// <summary>
         /// Import students data
         /// </summary>
-        public void ImportData()
+        public void ImportData(string path)
         {
-            throw new NotImplementedException();
+            try
+            {
+                string[] lines = File.ReadAllLines(path);
+
+                foreach (string line in lines)
+                {
+                    string[] values = line.Split(';');  
+
+                    if (values.Length >= 3) 
+                    {
+                        Student student = new Student(values[0], values[1], values[2]);
+                        this.AddStudent(student);
+                        repository.SaveStudents(students.ToList());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Erreur lors de l'importation : {ex.Message}");
+            }
         }
         /// <summary>
         /// Flag update for mvvm
