@@ -23,7 +23,7 @@ namespace OutilGestionAbsences
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainVM(new StudentData());
+            DataContext = new MainVM(new StudentData(), new CourseData());
 
         }
 
@@ -58,13 +58,18 @@ namespace OutilGestionAbsences
         private void AddAbsence_Click(object sender, RoutedEventArgs e)
         {
             MainVM vm = (MainVM)DataContext;
-            vm.AddAbsence();
+            CourseVM courseVM = new CourseVM(vm.Students, new CourseData());
+            AbsenceInputView absenceView = new AbsenceInputView(courseVM);
+            bool? result = absenceView.ShowDialog();
+            if (result == true)
+            {
+                vm.AddAbsence(courseVM.BuildCourse());
+            }
         }
 
         private void ResumeAbsences_Click(object sender, RoutedEventArgs e)
         {
-            MainVM vm = (MainVM)DataContext;
-            vm.ResumeAbsences();
+            // TODO: ouvrir la vue de synthèse des absences (2.6)
         }
     }
 }

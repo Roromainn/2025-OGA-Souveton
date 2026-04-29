@@ -1,12 +1,7 @@
-﻿using OGAMetier.Interfaces;
+using OGAMetier.Interfaces;
 using OGAMetier.Models;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace OGAData
 {
@@ -14,29 +9,21 @@ namespace OGAData
     {
         public ObservableCollection<Student> ListStudent()
         {
-            ObservableCollection<Student> resultat = new ObservableCollection<Student>();
-
             string jsonPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "students.json");
             if (!File.Exists(jsonPath))
-                throw new Exception("Fichier étudiant introuvable");
+                throw new FileNotFoundException("Fichier étudiant introuvable", jsonPath);
 
             string json = File.ReadAllText(jsonPath);
-            List<Student>? loadedStudents = JsonSerializer.Deserialize<List<Student>>(json);
-            if (loadedStudents == null)
-                throw new Exception("Liste d'étudiant vide");
+            List<Student> loadedStudents = JsonSerializer.Deserialize<List<Student>>(json)
+                ?? throw new InvalidDataException("Le fichier étudiant est vide ou invalide");
 
-            foreach (Student student in loadedStudents)
-            {
-                resultat.Add(student);
-            }
-            return resultat;
+            return new ObservableCollection<Student>(loadedStudents);
         }
 
         public void SaveStudents(List<Student> students)
         {
             string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "students.json");
-            string json = JsonSerializer.Serialize(students);
-            File.WriteAllText(path, json);
+            File.WriteAllText(path, JsonSerializer.Serialize(students));
         }
     }
 }

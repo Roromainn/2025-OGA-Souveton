@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace OGAMetier.Models
 {
     /// <summary>
-    /// General details about the course
+    /// Informations générales d'un cours
     /// </summary>
     public class CourseDetails
     {
@@ -20,15 +14,15 @@ namespace OGAMetier.Models
         /// <summary>
         /// Name of the course
         /// </summary>
-        string courseName;
+        string courseName = string.Empty;
 
         /// <summary>
-        /// Name of the teacher officiating the course
+        /// Nom de l'enseignant
         /// </summary>
-        string teacherName;
+        string teacherName = string.Empty;
 
         /// <summary>
-        /// Duration of the course
+        /// Durée du cours en minutes
         /// </summary>
         int duration;
         #endregion

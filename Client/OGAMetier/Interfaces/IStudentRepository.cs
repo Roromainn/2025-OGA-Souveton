@@ -1,18 +1,11 @@
-﻿using OGAMetier.Models;
-using System;
-using System.Collections.Generic;
+using OGAMetier.Models;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OGAMetier.Interfaces
 {
     public interface IStudentRepository
     {
-        public ObservableCollection<Student> ListStudent();
-
-        public void SaveStudents(List<Student> students);
-
+        ObservableCollection<Student> ListStudent();
+        void SaveStudents(List<Student> students);
     }
 }

@@ -1,21 +1,18 @@
-﻿using OGAMetier.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace OGAMetier.Models
 {
+    /// <summary>
+    /// Absence d'un étudiant à un cours
+    /// </summary>
     public class Absence : CourseDetails
     {
         #region--Attributes--
         /// <summary>
-        /// Justification of the absence
+        /// Justification de l'absence
         /// </summary>
-        string justification;
+        string justification = string.Empty;
+
         /// <summary>
-        /// Whether or not the absence was justified
+        /// Indique si l'absence est justifiée
         /// </summary>
         bool justified;
         #endregion

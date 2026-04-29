@@ -1,21 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace OGAMetier.Models
 {
     /// <summary>
-    /// The course itself
+    /// Un cours avec la liste des étudiants absents
     /// </summary>
     public class Course : CourseDetails
     {
         #region--Attributes--
         /// <summary>
-        /// Codes of student that were absent in this course
+        /// Codes des étudiants absents lors de ce cours
         /// </summary>
-        string[] absentStudentsCodes;
+        string[] absentStudentsCodes = Array.Empty<string>();
         #endregion
 
         #region--Properties--

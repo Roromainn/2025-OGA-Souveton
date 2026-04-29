@@ -1,22 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+using OGAMetier.Interfaces;
+using OGAMetier.Models;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Text.Json;
-using OGAMetier.Models;
-using OGAMetier.Interfaces;
 
 namespace OGAVM.ViewModel
 {
     /// <summary>
-    /// Deals with the gestion the the differents views and the students list
+    /// Gère la liste des étudiants et la navigation entre les vues
     /// </summary>
     public class MainVM : INotifyPropertyChanged
     {
@@ -26,17 +19,19 @@ namespace OGAVM.ViewModel
 
         #region--Attributes--
         /// <summary>
-        /// List of students
+        /// Liste des étudiants
         /// </summary>
         private ObservableCollection<Student> students;
+
         /// <summary>
-        /// Selected student in the list
+        /// Étudiant sélectionné dans la liste
         /// </summary>
         private Student? selectedStudent;
 
-        private StudentVM studentVM ;
+        private StudentVM? studentVM;
 
-        private readonly IStudentRepository repository;  
+        private readonly IStudentRepository studentRepository;
+        private readonly ICourseRepository courseRepository;
         #endregion
 
         #region--Properties--
@@ -65,7 +60,7 @@ namespace OGAVM.ViewModel
         }
 
         /// <summary>
-        /// ViewModel for the currently selected student
+        /// ViewModel de l'étudiant sélectionné
         /// </summary>
         public StudentVM? StudentVM
         {
@@ -79,9 +74,10 @@ namespace OGAVM.ViewModel
         #endregion
 
         #region--Constructor--
-        public MainVM(IStudentRepository repository)
+        public MainVM(IStudentRepository studentRepository, ICourseRepository courseRepository)
         {
-            this.repository = repository;
+            this.studentRepository = studentRepository;
+            this.courseRepository = courseRepository;
             students = new ObservableCollection<Student>();
             selectedStudent = null;
             studentVM = null;
@@ -91,87 +87,61 @@ namespace OGAVM.ViewModel
 
         #region--Methods--
         /// <summary>
-        /// Open the view for adding a new student and add it to the list if validated
+        /// Ajoute un étudiant à la liste et sauvegarde
         /// </summary>
         public void AddStudent(Student student)
         {
             if (student != null)
             {
                 Students.Add(student);
-                repository.SaveStudents(students.ToList());
+                studentRepository.SaveStudents(Students.ToList());
             }
         }
 
+        /// <summary>
+        /// Charge la liste des étudiants depuis le dépôt
+        /// </summary>
         public void ListStudent()
         {
-            var result = this.repository.ListStudent();
-            foreach (var student in result)
+            foreach (var student in studentRepository.ListStudent())
                 Students.Add(student);
         }
 
         /// <summary>
-        /// Updates StudentVM when selected student changes
+        /// Met à jour le StudentVM quand la sélection change
         /// </summary>
         private void UpdateStudentVM()
         {
-            if (selectedStudent != null)
-            {
-                StudentVM = new StudentVM(selectedStudent);
-            }
-            else
-            {
-                StudentVM = null;
-            }
+            StudentVM = selectedStudent != null ? new StudentVM(selectedStudent) : null;
         }
 
         /// <summary>
-        /// Open the view for adding an absence for the selected student
+        /// Ajoute un cours avec ses absences et sauvegarde
         /// </summary>
-        public void AddAbsence()
+        public void AddAbsence(Course course)
         {
-            //StudentAbsView studentAbsView = new StudentAbsView();
-            //studentAbsView.ShowDialog();
+            List<Course> courses = courseRepository.ListCourse();
+            courses.Add(course);
+            courseRepository.SaveCourse(courses);
         }
 
         /// <summary>
-        /// Open the view for student's absences summary
-        /// </summary>
-        public void ResumeAbsences()
-        {
-            //ResumeAbsView studentAbsView = new ResumeAbsView();
-            //studentAbsView.ShowDialog();
-        }
-
-        /// <summary>
-        /// Import students data
+        /// Importe des étudiants depuis un fichier CSV (séparateur ;, colonnes : Code, Nom, Prénom)
         /// </summary>
         public void ImportData(string path)
         {
-            try
+            string[] lines = File.ReadAllLines(path);
+            foreach (string line in lines)
             {
-                string[] lines = File.ReadAllLines(path);
-
-                foreach (string line in lines)
-                {
-                    string[] values = line.Split(';');  
-
-                    if (values.Length >= 3) 
-                    {
-                        Student student = new Student(values[0], values[1], values[2]);
-                        this.AddStudent(student);
-                        repository.SaveStudents(students.ToList());
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"Erreur lors de l'importation : {ex.Message}");
+                string[] values = line.Split(';');
+                if (values.Length >= 3)
+                    AddStudent(new Student(values[0].Trim(), values[1].Trim(), values[2].Trim()));
             }
         }
+
         /// <summary>
-        /// Flag update for mvvm
+        /// Notifie le binding MVVM qu'une propriété a changé
         /// </summary>
-        /// <param name="propertyName">Name of the property changed</param>
         private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

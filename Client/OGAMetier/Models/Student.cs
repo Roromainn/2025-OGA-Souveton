@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace OGAMetier.Models
 {
     /// <summary>
-    /// Class representing a student
+    /// Représente un étudiant
     /// </summary>
     public class Student
     {
@@ -15,15 +9,15 @@ namespace OGAMetier.Models
         /// <summary>
         /// Code representing the student
         /// </summary>
-        string code;
+        string code = string.Empty;
 
         /// <summary>
-        /// Last name of the student
+        /// Nom de famille
         /// </summary>
-        string lastName;
+        string lastName = string.Empty;
 
         /// <summary>
-        /// First name of the student
+        /// Prénom (optionnel)
         /// </summary>
         string? firstName;
         #endregion
@@ -37,7 +31,7 @@ namespace OGAMetier.Models
         #region--Constructor--
         public Student() { }
 
-        public Student(string code, string lastName, string firstName=null)
+        public Student(string code, string lastName, string? firstName = null)
         {
             this.code = code;
             this.lastName = lastName;

@@ -1,0 +1,66 @@
+<Window x:Class="OutilGestionAbsences.View.AbsenceInputView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Saisie d'une absence à un cours" Height="400" Width="700"
+        ResizeMode="NoResize">
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Margin="5,0">
+                <Label Content="Date du cours"/>
+                <DatePicker SelectedDate="{Binding CourseDate}" Margin="0,0,0,10"/>
+                <Label Content="Heure du cours"/>
+                <StackPanel Orientation="Horizontal">
+                    <ComboBox Width="60" Margin="0,0,5,0"
+                              ItemsSource="{Binding Hours}"
+                              SelectedItem="{Binding SelectedHour}"/>
+                    <Label Content="h" VerticalAlignment="Center" Padding="0"/>
+                    <ComboBox Width="60" Margin="5,0,0,0"
+                              ItemsSource="{Binding Minutes}"
+                              SelectedItem="{Binding SelectedMinute}"/>
+                    <Label Content="min" VerticalAlignment="Center" Padding="0"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Margin="5,0">
+                <Label Content="Enseignant :"/>
+                <TextBox Text="{Binding TeacherName, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
+                <Label Content="Matière :"/>
+                <TextBox Text="{Binding CourseName, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2" Margin="5,0">
+                <Label Content="Etudiants absents :"/>
+                <ListBox ItemsSource="{Binding StudentsPresence}" Height="200">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <CheckBox Content="{Binding StudentFullName}"
+                                      IsChecked="{Binding IsAbsent, Mode=TwoWay}"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </Grid>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0">
+            <Label Content="Durée :" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding Duration, UpdateSourceTrigger=PropertyChanged}"
+                     Width="100" VerticalAlignment="Center" Margin="5,0"/>
+            <Button Content="Valider" MinWidth="80" Padding="5,3" Margin="15,0,5,0" Click="Valider_Click"/>
+            <Button Content="Annuler" MinWidth="80" Padding="5,3" Margin="5,0,0,0" Click="Annuler_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
