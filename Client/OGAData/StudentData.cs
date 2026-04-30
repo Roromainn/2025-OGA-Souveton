@@ -7,9 +7,16 @@ namespace OGAData
 {
     public class StudentData : IStudentRepository
     {
+        private readonly string basePath;
+
+        public StudentData(string? basePath = null)
+        {
+            this.basePath = basePath ?? AppDomain.CurrentDomain.BaseDirectory;
+        }
+
         public ObservableCollection<Student> ListStudent()
         {
-            string jsonPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "students.json");
+            string jsonPath = Path.Combine(basePath, "students.json");
             if (!File.Exists(jsonPath))
                 throw new FileNotFoundException("Fichier étudiant introuvable", jsonPath);
 
@@ -22,7 +29,7 @@ namespace OGAData
 
         public void SaveStudents(List<Student> students)
         {
-            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "students.json");
+            string path = Path.Combine(basePath, "students.json");
             File.WriteAllText(path, JsonSerializer.Serialize(students));
         }
 
