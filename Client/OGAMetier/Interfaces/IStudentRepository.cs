@@ -7,5 +7,6 @@ namespace OGAMetier.Interfaces
     {
         ObservableCollection<Student> ListStudent();
         void SaveStudents(List<Student> students);
+        void ImportFromCsv(string path);
     }
 }

@@ -118,6 +118,11 @@ namespace OGAVM.ViewModel
         /// <summary>
         /// Ajoute un cours avec ses absences et sauvegarde
         /// </summary>
+        public List<Course> ListCourses()
+        {
+            return courseRepository.ListCourse();
+        }
+
         public void AddAbsence(Course course)
         {
             List<Course> courses = courseRepository.ListCourse();
@@ -125,18 +130,11 @@ namespace OGAVM.ViewModel
             courseRepository.SaveCourse(courses);
         }
 
-        /// <summary>
-        /// Importe des étudiants depuis un fichier CSV (séparateur ;, colonnes : Code, Nom, Prénom)
-        /// </summary>
         public void ImportData(string path)
         {
-            string[] lines = File.ReadAllLines(path);
-            foreach (string line in lines)
-            {
-                string[] values = line.Split(';');
-                if (values.Length >= 3)
-                    AddStudent(new Student(values[0].Trim(), values[1].Trim(), values[2].Trim()));
-            }
+            studentRepository.ImportFromCsv(path);
+            Students.Clear();
+            ListStudent();
         }
 
         /// <summary>

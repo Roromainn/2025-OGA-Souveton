@@ -7,7 +7,14 @@
         mc:Ignorable="d"
         Title="ResumeAbsView" Height="450" Width="800">
     <Grid>
-        <ListBox Margin="10"  />
+        <ListView Margin="10" ItemsSource="{Binding Stats}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Étudiant" DisplayMemberBinding="{Binding StudentLastName}" Width="200"/>
+                    <GridViewColumn Header="Durée totale (min)" DisplayMemberBinding="{Binding TotalDuration}" Width="150"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 
 

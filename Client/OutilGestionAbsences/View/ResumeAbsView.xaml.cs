@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OGAVM.ViewModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -14,14 +10,12 @@ using System.Windows.Shapes;
 
 namespace OutilGestionAbsences.View
 {
-    /// <summary>
-    /// Logique d'interaction pour ResumeAbsView.xaml
-    /// </summary>
     public partial class ResumeAbsView : Window
     {
-        public ResumeAbsView()
+        public ResumeAbsView(ResumeAbsVM vm)
         {
             InitializeComponent();
+            DataContext = vm;
         }
     }
 }

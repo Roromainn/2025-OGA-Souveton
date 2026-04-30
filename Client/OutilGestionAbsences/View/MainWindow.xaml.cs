@@ -69,7 +69,9 @@ namespace OutilGestionAbsences
 
         private void ResumeAbsences_Click(object sender, RoutedEventArgs e)
         {
-            // TODO: ouvrir la vue de synthèse des absences (2.6)
+            MainVM vm = (MainVM)DataContext;
+            ResumeAbsView resumeView = new ResumeAbsView(new ResumeAbsVM(vm.Students, vm.ListCourses()));
+            resumeView.ShowDialog();
         }
     }
 }

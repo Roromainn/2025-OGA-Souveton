@@ -25,5 +25,18 @@ namespace OGAData
             string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "students.json");
             File.WriteAllText(path, JsonSerializer.Serialize(students));
         }
+
+        public void ImportFromCsv(string path)
+        {
+            string[] lines = File.ReadAllLines(path);
+            List<Student> students = new List<Student>();
+            foreach (string line in lines)
+            {
+                string[] values = line.Split(';');
+                if (values.Length >= 3)
+                    students.Add(new Student(values[0].Trim(), values[1].Trim(), values[2].Trim()));
+            }
+            SaveStudents(students);
+        }
     }
 }
