@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OGAVM.ViewModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,9 +15,10 @@ namespace OutilGestionAbsences.View
     /// </summary>
     public partial class StudentAbsView : Window
     {
-        public StudentAbsView()
+        public StudentAbsView(StudentAbsVM vm)
         {
             InitializeComponent();
+            DataContext = vm;
         }
     }
 }

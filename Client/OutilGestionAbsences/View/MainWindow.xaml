@@ -18,7 +18,8 @@
             <Button Content="Resume absences" Padding="10" Margin="20" Click="ResumeAbsences_Click" />
         </StackPanel>
         <ListBox Grid.Column="1" Margin="20" ItemsSource="{Binding Students}"
-                 SelectedItem="{Binding SelectedStudent}">
+                 SelectedItem="{Binding SelectedStudent}"
+                 MouseDoubleClick="StudentList_MouseDoubleClick">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock>

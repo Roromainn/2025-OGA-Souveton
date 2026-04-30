@@ -2,11 +2,7 @@
 using OGAData;
 using OGAVM.ViewModel;
 using OutilGestionAbsences.View;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -64,6 +60,16 @@ namespace OutilGestionAbsences
             if (result == true)
             {
                 vm.AddAbsence(courseVM.BuildCourse());
+            }
+        }
+
+        private void StudentList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            MainVM vm = (MainVM)DataContext;
+            if (vm.SelectedStudent != null)
+            {
+                StudentAbsView absView = new StudentAbsView(new StudentAbsVM(vm.SelectedStudent, vm.ListCourses()));
+                absView.ShowDialog();
             }
         }
 
