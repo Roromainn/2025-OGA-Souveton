@@ -20,5 +20,10 @@ namespace OutilGestionAbsences.View
             InitializeComponent();
             DataContext = vm;
         }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

@@ -7,7 +7,7 @@ namespace OGAMetier.Models
     {
         #region--Attributes--
         /// <summary>
-        /// Code representing the student
+        /// Code de l'étudiant
         /// </summary>
         string code = string.Empty;
 

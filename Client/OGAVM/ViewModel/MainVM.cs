@@ -28,9 +28,19 @@ namespace OGAVM.ViewModel
         /// </summary>
         private Student? selectedStudent;
 
+        /// <summary>
+        /// ViewModel de l'étudiant sélectionné
+        /// </summary>
         private StudentVM? studentVM;
 
+        /// <summary>
+        /// Dépôt pour la persistance des étudiants
+        /// </summary>
         private readonly IStudentRepository studentRepository;
+
+        /// <summary>
+        /// Dépôt pour la persistance des cours
+        /// </summary>
         private readonly ICourseRepository courseRepository;
         #endregion
 
@@ -103,7 +113,7 @@ namespace OGAVM.ViewModel
         /// </summary>
         public void ListStudent()
         {
-            foreach (var student in studentRepository.ListStudent())
+            foreach (Student? student in studentRepository.ListStudent())
                 Students.Add(student);
         }
 
@@ -116,13 +126,16 @@ namespace OGAVM.ViewModel
         }
 
         /// <summary>
-        /// Ajoute un cours avec ses absences et sauvegarde
+        /// Récupère la liste des cours
         /// </summary>
         public List<Course> ListCourses()
         {
             return courseRepository.ListCourse();
         }
 
+        /// <summary>
+        /// Ajoute un cours avec ses absences et sauvegarde
+        /// </summary>
         public void AddAbsence(Course course)
         {
             List<Course> courses = courseRepository.ListCourse();
@@ -130,6 +143,9 @@ namespace OGAVM.ViewModel
             courseRepository.SaveCourse(courses);
         }
 
+        /// <summary>
+        /// Importe les étudiants depuis un fichier CSV
+        /// </summary>
         public void ImportData(string path)
         {
             studentRepository.ImportFromCsv(path);

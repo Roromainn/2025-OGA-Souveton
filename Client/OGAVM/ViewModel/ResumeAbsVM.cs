@@ -2,18 +2,38 @@ using OGAMetier.Models;
 
 namespace OGAVM.ViewModel
 {
+    /// <summary>
+    /// ViewModel pour le résumé des absences par étudiant
+    /// </summary>
     public class ResumeAbsVM
     {
-        public List<StatsAbsences> Stats { get; }
+        #region--Attributes--
+        /// <summary>
+        /// Statistiques des absences par étudiant
+        /// </summary>
+        private List<StatsAbsences> stats;
+        #endregion
 
+        #region--Properties--
+        /// <summary>
+        /// Liste des statistiques d'absences
+        /// </summary>
+        public List<StatsAbsences> Stats { get => stats; }
+        #endregion
+
+        #region--Constructor--
+        /// <summary>
+        /// Initialise le ViewModel avec étudiants et cours
+        /// </summary>
         public ResumeAbsVM(IEnumerable<Student> students, IEnumerable<Course> courses)
         {
-            Stats = students
+            stats = students
                 .Select(s => new StatsAbsences(
                     s,
                     courses.Where(c => c.AbsentStudentsCodes.Contains(s.Code)).Sum(c => c.Duration)
                 ))
                 .ToList();
         }
+        #endregion
     }
 }

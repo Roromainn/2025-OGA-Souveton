@@ -18,6 +18,9 @@ namespace OGAVM.ViewModel
         #endregion
 
         #region--Properties--
+        /// <summary>
+        /// Prénom de l'étudiant
+        /// </summary>
         public string? FirstName
         {
             get => student.FirstName;
@@ -28,6 +31,9 @@ namespace OGAVM.ViewModel
             }
         }
 
+        /// <summary>
+        /// Nom de famille de l'étudiant
+        /// </summary>
         public string LastName
         {
             get => student.LastName;
@@ -38,10 +44,16 @@ namespace OGAVM.ViewModel
             }
         }
 
+        /// <summary>
+        /// L'étudiant concerné
+        /// </summary>
         public Student Student { get => student; set => student = value; }
         #endregion
 
         #region--Constructor--
+        /// <summary>
+        /// Initialise la VM avec un étudiant
+        /// </summary>
         public StudentVM(Student student)
         {
             this.student = student;
@@ -49,6 +61,9 @@ namespace OGAVM.ViewModel
         #endregion
 
         #region--Methods--
+        /// <summary>
+        /// Flag MVVM
+        /// </summary>
         private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

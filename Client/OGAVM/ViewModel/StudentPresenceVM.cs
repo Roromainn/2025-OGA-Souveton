@@ -16,7 +16,9 @@ namespace OGAVM.ViewModel
         /// Flag pour le MVVM
         /// </summary>
         public event PropertyChangedEventHandler? PropertyChanged;
+        #endregion
 
+        #region--Attributes--
         /// <summary>
         /// Si l'étudiant est absent
         /// </summary>
@@ -29,9 +31,19 @@ namespace OGAVM.ViewModel
         #endregion
 
         #region--Properties--
+        /// <summary>
+        /// Nom complet formaté de l'étudiant
+        /// </summary>
         public string StudentFullName => $"{student.LastName} {student.FirstName}";
+
+        /// <summary>
+        /// L'étudiant concerné
+        /// </summary>
         public Student Student => student;
 
+        /// <summary>
+        /// Statut d'absence de l'étudiant
+        /// </summary>
         public bool IsAbsent
         {
             get => isAbsent;
@@ -43,7 +55,7 @@ namespace OGAVM.ViewModel
         }
         #endregion
 
-        #region--Constructeur--
+        #region--Constructor--
         public StudentPresenceVM(Student student)
         {
             this.student = student;

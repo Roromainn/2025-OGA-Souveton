@@ -13,8 +13,8 @@ namespace OGATests
         [Fact]
         public void AddStudent_AjouteEtudiantALaListe()
         {
-            var vm = BuildVM();
-            var etudiant = new Student("001", "Potter", "Harry");
+            MainVM vm = BuildVM();
+            Student etudiant = new Student("001", "Potter", "Harry");
 
             vm.AddStudent(etudiant);
 
@@ -25,7 +25,7 @@ namespace OGATests
         [Fact]
         public void AddStudent_PlusieursEtudiants_TousPresents()
         {
-            var vm = BuildVM();
+            MainVM vm = BuildVM();
 
             vm.AddStudent(new Student("001", "Potter", "Harry"));
             vm.AddStudent(new Student("002", "Granger", "Hermione"));
@@ -36,8 +36,8 @@ namespace OGATests
         [Fact]
         public void ListStudent_ChargeEtudiantsInitiaux()
         {
-            var initial = new[] { new Student("001", "Potter", "Harry") };
-            var vm = BuildVM(students: initial);
+            Student[]? initial = new[] { new Student("001", "Potter", "Harry") };
+            MainVM vm = BuildVM(students: initial);
 
             Assert.Single(vm.Students);
         }
@@ -45,8 +45,8 @@ namespace OGATests
         [Fact]
         public void AddAbsence_AjouteCours()
         {
-            var vm = BuildVM();
-            var cours = new Course { CourseName = "Maths", Duration = 120, AbsentStudentsCodes = new[] { "001" } };
+            MainVM vm = BuildVM();
+            Course cours = new Course { CourseName = "Maths", Duration = 120, AbsentStudentsCodes = new[] { "001" } };
 
             vm.AddAbsence(cours);
 
@@ -56,10 +56,10 @@ namespace OGATests
         [Fact]
         public void ListCourses_RetourneLesCoursExistants()
         {
-            var cours = new Course { CourseName = "Algo", Duration = 60 };
-            var vm = BuildVM(courses: new[] { cours });
+            Course? cours = new Course { CourseName = "Algo", Duration = 60 };
+            MainVM vm = BuildVM(courses: new[] { cours });
 
-            var result = vm.ListCourses();
+            List<Course> result = vm.ListCourses();
 
             Assert.Single(result);
             Assert.Equal("Algo", result[0].CourseName);

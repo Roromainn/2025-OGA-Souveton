@@ -8,11 +8,11 @@ namespace OGAVM.ViewModel
 {
     public class CourseVM : INotifyPropertyChanged
     {
-        #region--Attributes--
-        /// <summary>
-        /// Flag pour le MVVM
-        /// </summary>
+        #region--Events--
         public event PropertyChangedEventHandler? PropertyChanged;
+        #endregion
+
+        #region--Attributes--
 
         /// <summary>
         /// Date du cours
@@ -20,12 +20,12 @@ namespace OGAVM.ViewModel
         private DateTime courseDate = DateTime.Today;
 
         /// <summary>
-        /// Heure de d�but du cours, par d�faut 8
+        /// Heure de début du cours, par défaut 8
         /// </summary>
         private int selectedHour = 8;
 
         /// <summary>
-        /// minutes du d�but du cours, par d�faut 0
+        /// Minutes du début du cours, par défaut 0
         /// </summary>
         private int selectedMinute = 0;
 
@@ -40,15 +40,17 @@ namespace OGAVM.ViewModel
         private string courseName = String.Empty;
 
         /// <summary>
-        /// dur�e du cours en minutes, par d�faut 120
+        /// Durée du cours en minutes, par défaut 120
         /// </summary>
         private int duration = 120;
 
+        /// <summary>
+        /// Dépôt pour la persistance des cours
+        /// </summary>
         private readonly ICourseRepository repository;
 
-
         /// <summary>
-        /// Liste �tudiants pr�sents
+        /// Liste des étudiants avec statut de présence
         /// </summary>
         private ObservableCollection<StudentPresenceVM> studentsPresence;
         #endregion
@@ -101,6 +103,9 @@ namespace OGAVM.ViewModel
         #endregion
 
         #region--Constructor--
+        /// <summary>
+        /// Initialise la VM avec une liste d'étudiants et le dépôt
+        /// </summary>
         public CourseVM(IEnumerable<Student> students, ICourseRepository repo)
         {
             this.repository = repo;
@@ -111,6 +116,9 @@ namespace OGAVM.ViewModel
         #endregion
 
         #region--Methods--
+        /// <summary>
+        /// Construit un cours avec les infos actuelles
+        /// </summary>
         public Course BuildCourse()
         {
             string[] absentCodes = StudentsPresence.Where(sp => sp.IsAbsent).Select(sp => sp.Student.Code).ToArray();
@@ -127,6 +135,9 @@ namespace OGAVM.ViewModel
             };
         }
 
+        /// <summary>
+        /// Sauvegarde les cours
+        /// </summary>
         public void SaveAbs(List<Course> course)
         {
             this.repository.SaveCourse(course);
@@ -140,6 +151,9 @@ namespace OGAVM.ViewModel
             return repository.ListAbsences(course, studentsPresence.Select(sp => sp.Student));
         }
 
+        /// <summary>
+        /// Notifie le binding MVVM qu'une propriété a changé
+        /// </summary>
         private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
