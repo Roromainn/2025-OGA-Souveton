@@ -20,7 +20,7 @@
             <TextBlock Text="{Binding StudentFullName}" VerticalAlignment="Center" FontWeight="Bold" Margin="5,0" FontSize="14"/>
         </StackPanel>
 
-        <DataGrid Grid.Row="1" Margin="10" ItemsSource="{Binding Absences}">
+        <DataGrid Grid.Row="1" Margin="10" ItemsSource="{Binding Absences}" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Date" Binding="{Binding FormattedDate}" Width="100"/>
                 <DataGridTextColumn Header="Heure" Binding="{Binding FormattedTime}" Width="80"/>

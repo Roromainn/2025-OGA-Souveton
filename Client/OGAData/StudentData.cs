@@ -1,7 +1,9 @@
 using OGAMetier.Interfaces;
 using OGAMetier.Models;
 using System.Collections.ObjectModel;
+using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace OGAData
 {
@@ -32,13 +34,26 @@ namespace OGAData
         {
             string jsonPath = Path.Combine(basePath, "students.json");
             if (!File.Exists(jsonPath))
-                throw new FileNotFoundException("Fichier étudiant introuvable", jsonPath);
+            {
+                using (StreamWriter sw = new StreamWriter(jsonPath, false, Encoding.UTF8))
+                {
+                    sw.WriteLine("[]");
+                }
+            }
 
             string json = File.ReadAllText(jsonPath);
-            List<Student> loadedStudents = JsonSerializer.Deserialize<List<Student>>(json)
-                ?? throw new InvalidDataException("Le fichier étudiant est vide ou invalide");
+            List<Student>? loadedStudents = null;
+            try
+            {
+                loadedStudents = JsonSerializer.Deserialize<List<Student>>(json);
+            }
+            catch (JsonException)
+            {
+                File.WriteAllText(jsonPath, "[]");
+                loadedStudents = new List<Student>();
+            }
 
-            return new ObservableCollection<Student>(loadedStudents);
+            return new ObservableCollection<Student>(loadedStudents ?? new List<Student>());
         }
 
         public void SaveStudents(List<Student> students)

@@ -84,11 +84,23 @@ namespace OGATests
         }
 
         [Fact]
-        public void ListStudent_FichierIntrouvable_Leve()
+        public void ListStudent_FichierIntrouvable_CreeListe()
         {
-            StudentData? data = new StudentData(Path.GetTempPath());
+            string tempDir = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
+            Directory.CreateDirectory(tempDir);
+            try
+            {
+                StudentData data = new StudentData(tempDir);
+                var result = data.ListStudent();
 
-            Assert.Throws<FileNotFoundException>(() => data.ListStudent());
+                Assert.NotNull(result);
+                Assert.Empty(result);
+                Assert.True(File.Exists(Path.Combine(tempDir, "students.json")));
+            }
+            finally
+            {
+                Directory.Delete(tempDir, true);
+            }
         }
     }
 }

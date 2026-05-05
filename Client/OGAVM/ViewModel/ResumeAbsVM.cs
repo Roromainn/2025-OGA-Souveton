@@ -28,6 +28,7 @@ namespace OGAVM.ViewModel
         public ResumeAbsVM(IEnumerable<Student> students, IEnumerable<Course> courses)
         {
             stats = students
+                .Where(s => !string.IsNullOrWhiteSpace(s.LastName))
                 .Select(s => new StatsAbsences(
                     s,
                     courses.Where(c => c.AbsentStudentsCodes.Contains(s.Code)).Sum(c => c.Duration)
