@@ -55,5 +55,40 @@ namespace OGATests
                 if (File.Exists(jsonPath)) File.Delete(jsonPath);
             }
         }
+
+        [Fact]
+        public void SaveStudents_PuisListStudent_RetourneEtudiants()
+        {
+            string jsonPath = Path.Combine(Path.GetTempPath(), $"students_test_{Guid.NewGuid()}.json");
+
+            try
+            {
+                StudentData? data = new StudentData(Path.GetDirectoryName(jsonPath)!);
+                List<Student> students = new List<Student>
+                {
+                    new Student("001", "Potter", "Harry"),
+                    new Student("002", "Granger", "Hermione")
+                };
+
+                data.SaveStudents(students);
+                ObservableCollection<Student>? loaded = data.ListStudent();
+
+                Assert.Equal(2, loaded.Count);
+                Assert.Contains(loaded, s => s.Code == "001" && s.LastName == "Potter");
+                Assert.Contains(loaded, s => s.Code == "002" && s.LastName == "Granger");
+            }
+            finally
+            {
+                if (File.Exists(jsonPath)) File.Delete(jsonPath);
+            }
+        }
+
+        [Fact]
+        public void ListStudent_FichierIntrouvable_Leve()
+        {
+            StudentData? data = new StudentData(Path.GetTempPath());
+
+            Assert.Throws<FileNotFoundException>(() => data.ListStudent());
+        }
     }
 }

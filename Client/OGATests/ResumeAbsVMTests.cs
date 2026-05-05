@@ -19,8 +19,8 @@ namespace OGATests
         [Fact]
         public void Stats_EtudiantAbsentUnCours_TotalDurationEgalDureeCours()
         {
-            Student etudiant = Etudiant("E01");
-            Course cours = Cours(120, "E01");
+            Student etudiant = Etudiant("001");
+            Course cours = Cours(120, "001");
 
             ResumeAbsVM vm = new ResumeAbsVM(new[] { etudiant }, new[] { cours });
 
@@ -30,9 +30,9 @@ namespace OGATests
         [Fact]
         public void Stats_EtudiantAbsentPlusieurssCours_TotalDurationEgalSomme()
         {
-            Student etudiant = Etudiant("E01");
-            Course cours1 = Cours(60, "E01");
-            Course cours2 = Cours(90, "E01");
+            Student etudiant = Etudiant("001");
+            Course cours1 = Cours(60, "001");
+            Course cours2 = Cours(90, "001");
 
             ResumeAbsVM vm = new ResumeAbsVM(new[] { etudiant }, new[] { cours1, cours2 });
             Assert.Equal(150, vm.Stats[0].TotalDuration);
@@ -41,8 +41,8 @@ namespace OGATests
         [Fact]
         public void Stats_EtudiantPresent_TotalDurationEgalZero()
         {
-            Student etudiant = Etudiant("E01");
-            Course cours = Cours(120, "E02");
+            Student etudiant = Etudiant("001");
+            Course cours = Cours(120, "002");
 
             ResumeAbsVM vm = new ResumeAbsVM(new[] { etudiant }, new[] { cours });
 
@@ -52,9 +52,9 @@ namespace OGATests
         [Fact]
         public void Stats_PlusieursEtudiants_ChacunASesPropresStats()
         {
-            Student e1 = Etudiant("E01");
-            Student e2 = Etudiant("E02");
-            Course cours = Cours(60, "E01");
+            Student e1 = Etudiant("001");
+            Student e2 = Etudiant("002");
+            Course cours = Cours(60, "001");
 
             ResumeAbsVM vm = new ResumeAbsVM(new[] { e1, e2 }, new[] { cours });
 
