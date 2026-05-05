@@ -38,5 +38,18 @@ namespace OGAMetier.Models
             this.firstName = firstName;
         }
         #endregion
+
+        #region--Méthodes--
+        /// <summary>
+        /// Valide que les champs obligatoires sont remplis
+        /// </summary>
+        public void Validate()
+        {
+            if (string.IsNullOrWhiteSpace(code))
+                throw new ArgumentException("Code étudiant obligatoire");
+            if (string.IsNullOrWhiteSpace(lastName))
+                throw new ArgumentException("Nom de famille obligatoire");
+        }
+        #endregion
     }
 }

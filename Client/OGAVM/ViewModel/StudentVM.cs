@@ -15,6 +15,11 @@ namespace OGAVM.ViewModel
         /// L'étudiant concerné
         /// </summary>
         private Student student;
+
+        /// <summary>
+        /// Message d'erreur de validation
+        /// </summary>
+        private string? errorMessage;
         #endregion
 
         #region--Propriétés--
@@ -48,6 +53,19 @@ namespace OGAVM.ViewModel
         /// L'étudiant concerné
         /// </summary>
         public Student Student { get => student; set => student = value; }
+
+        /// <summary>
+        /// Message d'erreur de validation
+        /// </summary>
+        public string? ErrorMessage
+        {
+            get => errorMessage;
+            set
+            {
+                errorMessage = value;
+                NotifyPropertyChanged();
+            }
+        }
         #endregion
 
         #region--Constructeur--
@@ -67,6 +85,24 @@ namespace OGAVM.ViewModel
         private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// Valide l'étudiant et retourne true si valide
+        /// </summary>
+        public bool TryValidate()
+        {
+            try
+            {
+                student.Validate();
+                ErrorMessage = null;
+                return true;
+            }
+            catch (ArgumentException ex)
+            {
+                ErrorMessage = ex.Message;
+                return false;
+            }
         }
         #endregion
     }

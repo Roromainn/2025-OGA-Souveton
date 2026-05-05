@@ -53,6 +53,11 @@ namespace OGAVM.ViewModel
         /// Liste des étudiants avec statut de présence
         /// </summary>
         private ObservableCollection<StudentPresenceVM> studentsPresence;
+
+        /// <summary>
+        /// Message d'erreur de validation
+        /// </summary>
+        private string? errorMessage;
         #endregion
 
         #region--Propriétés--
@@ -99,6 +104,16 @@ namespace OGAVM.ViewModel
         {
             get => studentsPresence;
             set { studentsPresence = value; NotifyPropertyChanged(); }
+        }
+
+        public string? ErrorMessage
+        {
+            get => errorMessage;
+            set
+            {
+                errorMessage = value;
+                NotifyPropertyChanged();
+            }
         }
         #endregion
 
@@ -157,6 +172,25 @@ namespace OGAVM.ViewModel
         private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// Valide le cours et retourne true si valide
+        /// </summary>
+        public bool TryValidate()
+        {
+            try
+            {
+                Course course = BuildCourse();
+                course.Validate();
+                ErrorMessage = null;
+                return true;
+            }
+            catch (ArgumentException ex)
+            {
+                ErrorMessage = ex.Message;
+                return false;
+            }
         }
         #endregion
     }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OutilGestionAbsences.View"
         mc:Ignorable="d"
-        Title="Add Student" Height="450" Width="800">
+        Title="Ajouter un étudiant" Height="450" Width="800">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -18,17 +18,17 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Grid.Column="0" Content="Student code :" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        <Label Grid.Row="0" Grid.Column="0" Content="Code étudiant :" HorizontalAlignment="Right" VerticalAlignment="Center" />
         <TextBox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10"
                  Text="{Binding Student.Code, UpdateSourceTrigger=PropertyChanged}" FontWeight="Bold"/>
-        <Label Grid.Row="1" Grid.Column="0" Content="First name :" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        <Label Grid.Row="1" Grid.Column="0" Content="Prénom :" HorizontalAlignment="Right" VerticalAlignment="Center" />
         <TextBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10"
                  Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}"/>
-        <Label Grid.Row="2" Grid.Column="0" Content="Last name :" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        <Label Grid.Row="2" Grid.Column="0" Content="Nom de famille :" HorizontalAlignment="Right" VerticalAlignment="Center" />
         <TextBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10"
                  Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}"/>
-        <Button Content="Ok" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10" MinWidth="100" Click="ValideStudent"/>
-        <Button Content="Cancel" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10" MinWidth="100" Click="CancelStudent"/>
+        <Button Content="OK" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10" MinWidth="100" Click="ValideStudent"/>
+        <Button Content="Annuler" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10" MinWidth="100" Click="CancelStudent"/>
     </Grid>
 
 </Window>

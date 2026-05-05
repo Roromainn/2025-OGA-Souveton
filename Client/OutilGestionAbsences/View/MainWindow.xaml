@@ -12,10 +12,10 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0">
-            <Button Content="Add a new student" Padding="10" Margin="20" Click="AddStudent_Click" />
-            <Button Content="Import students" Padding="10" Margin="20" Click="ImportData_Click" />
-            <Button Content="Add absences" Padding="10" Margin="20" Click="AddAbsence_Click" />
-            <Button Content="Resume absences" Padding="10" Margin="20" Click="ResumeAbsences_Click" />
+            <Button Content="Ajouter un nouvel étudiant" Padding="10" Margin="20" Click="AddStudent_Click" />
+            <Button Content="Importer des étudiants" Padding="10" Margin="20" Click="ImportData_Click" />
+            <Button Content="Ajouter des absences" Padding="10" Margin="20" Click="AddAbsence_Click" />
+            <Button Content="Résumé des absences" Padding="10" Margin="20" Click="ResumeAbsences_Click" />
         </StackPanel>
         <ListBox Grid.Column="1" Margin="20" ItemsSource="{Binding Students}"
                  SelectedItem="{Binding SelectedStudent}"

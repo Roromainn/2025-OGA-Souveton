@@ -10,14 +10,16 @@ namespace OGATests
         [Fact]
         public void ImportFromCsv_FichierValide_ImporteEtudiants()
         {
+            string tempDir = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
+            Directory.CreateDirectory(tempDir);
             string csv = "001;Potter;Harry\n002;Granger;Hermione";
-            string path = Path.GetTempFileName();
+            string path = Path.Combine(tempDir, "students.csv");
             File.WriteAllText(path, csv);
-            string jsonPath = Path.Combine(Path.GetDirectoryName(path)!, "students.json");
+            string jsonPath = Path.Combine(tempDir, "students.json");
 
             try
             {
-                StudentData? data = new StudentData(Path.GetDirectoryName(path)!);
+                StudentData? data = new StudentData(tempDir);
                 data.ImportFromCsv(path);
                 ObservableCollection<Student> students = data.ListStudent();
 
@@ -27,22 +29,22 @@ namespace OGATests
             }
             finally
             {
-                File.Delete(path);
-                if (File.Exists(jsonPath)) File.Delete(jsonPath);
+                Directory.Delete(tempDir, true);
             }
         }
 
         [Fact]
         public void ImportFromCsv_LigneAvecChampsSupplementaires_Ignoree()
         {
+            string tempDir = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
+            Directory.CreateDirectory(tempDir);
             string csv = "001;Potter;Harry;extra;data";
-            string path = Path.GetTempFileName();
+            string path = Path.Combine(tempDir, "students.csv");
             File.WriteAllText(path, csv);
-            string jsonPath = Path.Combine(Path.GetDirectoryName(path)!, "students.json");
 
             try
             {
-                StudentData? data = new StudentData(Path.GetDirectoryName(path)!);
+                StudentData? data = new StudentData(tempDir);
                 data.ImportFromCsv(path);
                 ObservableCollection<Student> students = data.ListStudent();
 
@@ -51,8 +53,7 @@ namespace OGATests
             }
             finally
             {
-                File.Delete(path);
-                if (File.Exists(jsonPath)) File.Delete(jsonPath);
+                Directory.Delete(tempDir, true);
             }
         }
 

@@ -13,7 +13,17 @@ namespace OutilGestionAbsences.View
 
         private void Valider_Click(object sender, RoutedEventArgs e)
         {
-            DialogResult = true;
+            if (DataContext is CourseVM courseVM)
+            {
+                if (courseVM.TryValidate())
+                {
+                    DialogResult = true;
+                }
+                else
+                {
+                    MessageBox.Show(courseVM.ErrorMessage, "Erreur de validation", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Annuler_Click(object sender, RoutedEventArgs e)

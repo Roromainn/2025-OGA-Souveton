@@ -28,7 +28,14 @@ namespace OutilGestionAbsences.View
         /// </summary>
         private void ValideStudent(object sender, RoutedEventArgs e)
         {
-            DialogResult = true;
+            if (StudentVM!.TryValidate())
+            {
+                DialogResult = true;
+            }
+            else
+            {
+                MessageBox.Show(StudentVM.ErrorMessage, "Erreur de validation", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         /// <summary>

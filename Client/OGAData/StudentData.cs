@@ -65,14 +65,22 @@ namespace OGAData
         public void ImportFromCsv(string path)
         {
             string[] lines = File.ReadAllLines(path);
-            List<Student> students = new List<Student>();
+            var existingStudents = ListStudent().ToList();
+            var existingCodes = existingStudents.Select(s => s.Code).ToHashSet();
+
             foreach (string line in lines)
             {
                 string[] values = line.Split(';');
                 if (values.Length >= 3)
-                    students.Add(new Student(values[0].Trim(), values[1].Trim(), values[2].Trim()));
+                {
+                    string code = values[0].Trim();
+                    if (!existingCodes.Contains(code))
+                    {
+                        existingStudents.Add(new Student(code, values[1].Trim(), values[2].Trim()));
+                    }
+                }
             }
-            SaveStudents(students);
+            SaveStudents(existingStudents);
         }
         #endregion
     }

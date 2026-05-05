@@ -33,5 +33,22 @@ namespace OGAMetier.Models
         public string TeacherName { get => teacherName; set => teacherName = value; }
         public int Duration { get => duration; set => duration = value; }
         #endregion
+
+        #region--Méthodes--
+        /// <summary>
+        /// Valide que les champs obligatoires sont remplis
+        /// </summary>
+        public void Validate()
+        {
+            if (string.IsNullOrWhiteSpace(courseName))
+                throw new ArgumentException("Nom du cours obligatoire");
+            if (string.IsNullOrWhiteSpace(teacherName))
+                throw new ArgumentException("Nom du professeur obligatoire");
+            if (dateDetail == default(DateTime))
+                throw new ArgumentException("Date du cours obligatoire");
+            if (duration <= 0)
+                throw new ArgumentException("Durée du cours doit être supérieure à 0 minutes");
+        }
+        #endregion
     }
 }
