@@ -7,8 +7,12 @@ using System.Text.Json;
 
 namespace OGAData
 {
+    /// <summary>
+    /// Dépôt pour la persistance des cours en JSON
+    /// </summary>
     public class CourseData : ICourseRepository
     {
+        #region--Méthodes--
         public List<Course> ListCourse()
         {
             string jsonPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "course.json");
@@ -29,5 +33,6 @@ namespace OGAData
             string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "course.json");
             File.WriteAllText(path, JsonSerializer.Serialize(courses));
         }
+        #endregion
     }
 }

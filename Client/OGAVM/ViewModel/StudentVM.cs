@@ -6,18 +6,18 @@ namespace OGAVM.ViewModel
 {
     public class StudentVM : INotifyPropertyChanged
     {
-        #region--Events--
+        #region--Événements--
         public event PropertyChangedEventHandler? PropertyChanged;
         #endregion
 
-        #region--Attributes--
+        #region--Attributs--
         /// <summary>
         /// L'étudiant concerné
         /// </summary>
         private Student student;
         #endregion
 
-        #region--Properties--
+        #region--Propriétés--
         /// <summary>
         /// Prénom de l'étudiant
         /// </summary>
@@ -50,7 +50,7 @@ namespace OGAVM.ViewModel
         public Student Student { get => student; set => student = value; }
         #endregion
 
-        #region--Constructor--
+        #region--Constructeur--
         /// <summary>
         /// Initialise la VM avec un étudiant
         /// </summary>
@@ -60,7 +60,7 @@ namespace OGAVM.ViewModel
         }
         #endregion
 
-        #region--Methods--
+        #region--Méthodes--
         /// <summary>
         /// Flag MVVM
         /// </summary>

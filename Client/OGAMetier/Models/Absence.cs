@@ -5,7 +5,7 @@ namespace OGAMetier.Models
     /// </summary>
     public class Absence : CourseDetails
     {
-        #region--Attributes--
+        #region--Attributs--
         /// <summary>
         /// Justification de l'absence
         /// </summary>
@@ -17,7 +17,7 @@ namespace OGAMetier.Models
         bool justified;
         #endregion
 
-        #region--Properties--
+        #region--Propriétés--
         public string Justification { get => justification; set => justification = value; }
         public bool Justified { get => justified; set => justified = value; }
         #endregion

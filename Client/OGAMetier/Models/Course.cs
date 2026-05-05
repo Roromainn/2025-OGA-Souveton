@@ -5,14 +5,14 @@ namespace OGAMetier.Models
     /// </summary>
     public class Course : CourseDetails
     {
-        #region--Attributes--
+        #region--Attributs--
         /// <summary>
         /// Codes des étudiants absents lors de ce cours
         /// </summary>
         string[] absentStudentsCodes = Array.Empty<string>();
         #endregion
 
-        #region--Properties--
+        #region--Propriétés--
         public string[] AbsentStudentsCodes { get => absentStudentsCodes; set => absentStudentsCodes = value; }
         #endregion
     }

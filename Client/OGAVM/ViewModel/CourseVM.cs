@@ -8,11 +8,11 @@ namespace OGAVM.ViewModel
 {
     public class CourseVM : INotifyPropertyChanged
     {
-        #region--Events--
+        #region--Événements--
         public event PropertyChangedEventHandler? PropertyChanged;
         #endregion
 
-        #region--Attributes--
+        #region--Attributs--
 
         /// <summary>
         /// Date du cours
@@ -55,7 +55,7 @@ namespace OGAVM.ViewModel
         private ObservableCollection<StudentPresenceVM> studentsPresence;
         #endregion
 
-        #region--Properties--
+        #region--Propriétés--
         public List<int> Hours { get; } = Enumerable.Range(0, 24).ToList();
         public List<int> Minutes { get; } = new List<int> { 0, 15, 30, 45 };
 
@@ -102,7 +102,7 @@ namespace OGAVM.ViewModel
         }
         #endregion
 
-        #region--Constructor--
+        #region--Constructeur--
         /// <summary>
         /// Initialise la VM avec une liste d'étudiants et le dépôt
         /// </summary>
@@ -115,7 +115,7 @@ namespace OGAVM.ViewModel
         }
         #endregion
 
-        #region--Methods--
+        #region--Méthodes--
         /// <summary>
         /// Construit un cours avec les infos actuelles
         /// </summary>

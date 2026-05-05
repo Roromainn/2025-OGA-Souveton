@@ -11,7 +11,7 @@ namespace OGAVM.ViewModel
     /// </summary>
     public class StudentAbsenceDetail
     {
-        #region--Attributes--
+        #region--Attributs--
         /// <summary>
         /// Date et heure du cours
         /// </summary>
@@ -43,7 +43,7 @@ namespace OGAVM.ViewModel
         public string Justification { get; set; } = string.Empty;
         #endregion
 
-        #region--Properties--
+        #region--Propriétés--
         /// <summary>
         /// Date formatée jj/mm/aaaa
         /// </summary>

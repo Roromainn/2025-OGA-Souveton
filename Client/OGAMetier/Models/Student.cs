@@ -5,7 +5,7 @@ namespace OGAMetier.Models
     /// </summary>
     public class Student
     {
-        #region--Attributes--
+        #region--Attributs--
         /// <summary>
         /// Code de l'étudiant
         /// </summary>
@@ -22,13 +22,13 @@ namespace OGAMetier.Models
         string? firstName;
         #endregion
 
-        #region--Properties--
+        #region--Propriétés--
         public string Code { get => code; set => code = value; }
         public string LastName { get => lastName; set => lastName = value; }
         public string? FirstName { get => firstName; set => firstName = value; }
         #endregion
 
-        #region--Constructor--
+        #region--Constructeur--
         public Student() { }
 
         public Student(string code, string lastName, string? firstName = null)

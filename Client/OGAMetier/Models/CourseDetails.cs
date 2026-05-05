@@ -5,14 +5,14 @@ namespace OGAMetier.Models
     /// </summary>
     public class CourseDetails
     {
-        #region--Attributes--
+        #region--Attributs--
         /// <summary>
-        /// Date of the course
+        /// Date et heure du cours
         /// </summary>
         DateTime dateDetail;
 
         /// <summary>
-        /// Name of the course
+        /// Nom du cours
         /// </summary>
         string courseName = string.Empty;
 
@@ -27,7 +27,7 @@ namespace OGAMetier.Models
         int duration;
         #endregion
 
-        #region--Properties--
+        #region--Propriétés--
         public DateTime DateDetail { get => dateDetail; set => dateDetail = value; }
         public string CourseName { get => courseName; set => courseName = value; }
         public string TeacherName { get => teacherName; set => teacherName = value; }

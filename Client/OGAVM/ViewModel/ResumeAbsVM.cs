@@ -7,21 +7,21 @@ namespace OGAVM.ViewModel
     /// </summary>
     public class ResumeAbsVM
     {
-        #region--Attributes--
+        #region--Attributs--
         /// <summary>
         /// Statistiques des absences par étudiant
         /// </summary>
         private List<StatsAbsences> stats;
         #endregion
 
-        #region--Properties--
+        #region--Propriétés--
         /// <summary>
         /// Liste des statistiques d'absences
         /// </summary>
         public List<StatsAbsences> Stats { get => stats; }
         #endregion
 
-        #region--Constructor--
+        #region--Constructeur--
         /// <summary>
         /// Initialise le ViewModel avec étudiants et cours
         /// </summary>

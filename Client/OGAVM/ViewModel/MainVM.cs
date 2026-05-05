@@ -13,11 +13,11 @@ namespace OGAVM.ViewModel
     /// </summary>
     public class MainVM : INotifyPropertyChanged
     {
-        #region--Events--
+        #region--Événements--
         public event PropertyChangedEventHandler? PropertyChanged;
         #endregion
 
-        #region--Attributes--
+        #region--Attributs--
         /// <summary>
         /// Liste des étudiants
         /// </summary>
@@ -44,7 +44,7 @@ namespace OGAVM.ViewModel
         private readonly ICourseRepository courseRepository;
         #endregion
 
-        #region--Properties--
+        #region--Propriétés--
         public ObservableCollection<Student> Students
         {
             get => students;
@@ -83,7 +83,7 @@ namespace OGAVM.ViewModel
         }
         #endregion
 
-        #region--Constructor--
+        #region--Constructeur--
         public MainVM(IStudentRepository studentRepository, ICourseRepository courseRepository)
         {
             this.studentRepository = studentRepository;
@@ -95,7 +95,7 @@ namespace OGAVM.ViewModel
         }
         #endregion
 
-        #region--Methods--
+        #region--Méthodes--
         /// <summary>
         /// Ajoute un étudiant à la liste et sauvegarde
         /// </summary>

@@ -5,15 +5,29 @@ using System.Text.Json;
 
 namespace OGAData
 {
+    /// <summary>
+    /// Dépôt pour la persistance des étudiants en JSON
+    /// </summary>
     public class StudentData : IStudentRepository
     {
+        #region--Attributs--
+        /// <summary>
+        /// Chemin de base pour les fichiers JSON
+        /// </summary>
         private readonly string basePath;
+        #endregion
 
+        #region--Constructeur--
+        /// <summary>
+        /// Initialise le dépôt avec un chemin optionnel
+        /// </summary>
         public StudentData(string? basePath = null)
         {
             this.basePath = basePath ?? AppDomain.CurrentDomain.BaseDirectory;
         }
+        #endregion
 
+        #region--Méthodes--
         public ObservableCollection<Student> ListStudent()
         {
             string jsonPath = Path.Combine(basePath, "students.json");
@@ -45,5 +59,6 @@ namespace OGAData
             }
             SaveStudents(students);
         }
+        #endregion
     }
 }

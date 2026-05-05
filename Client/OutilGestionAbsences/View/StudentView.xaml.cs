@@ -9,11 +9,11 @@ namespace OutilGestionAbsences.View
     /// </summary>
     public partial class StudentView : Window
     {
-        #region--Properties--
+        #region--Propriétés--
         public StudentVM? StudentVM { get; private set; }
         #endregion
 
-        #region--Constructor--
+        #region--Constructeur--
         public StudentView()
         {
             InitializeComponent();
@@ -22,7 +22,7 @@ namespace OutilGestionAbsences.View
         }
         #endregion
 
-        #region--Methods--
+        #region--Méthodes--
         /// <summary>
         /// Valide la saisie et ferme la fenêtre
         /// </summary>

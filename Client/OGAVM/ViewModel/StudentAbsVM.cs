@@ -5,7 +5,7 @@ namespace OGAVM.ViewModel
 {
     public class StudentAbsVM
     {
-        #region--Attirbutes--
+        #region--Attributs--
         private string studentFullName;
 
         private ObservableCollection<StudentAbsenceDetail> absences;
@@ -15,14 +15,14 @@ namespace OGAVM.ViewModel
         private int totalDurationUnjustified;
         #endregion
 
-        #region--Properties--
+        #region--Propriétés--
         public string StudentFullName { get { return studentFullName; } }
         public ObservableCollection<StudentAbsenceDetail> Absences { get { return absences; } }
         public int TotalDuration { get { return totalDuration; } }
         public int TotalDurationUnjustified { get { return totalDurationUnjustified; } }
         #endregion
 
-        #region--Constructor--
+        #region--Constructeur--
         public StudentAbsVM(Student student, IEnumerable<Course> courses)
         {
             studentFullName = $"{student.FirstName} {student.LastName}";

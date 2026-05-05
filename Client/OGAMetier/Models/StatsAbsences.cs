@@ -7,34 +7,34 @@ using System.Threading.Tasks;
 namespace OGAMetier.Models
 {
     /// <summary>
-    /// Statitics of the absences of a student 
+    /// Statistiques des absences d'un étudiant
     /// </summary>
     public class StatsAbsences
     {
-        #region--Attributes--
+        #region--Attributs--
         /// <summary>
-        /// total duration of the absences
+        /// Durée totale des absences en minutes
         /// </summary>
         int totalDuration;
 
         /// <summary>
-        /// Total duration of the absences that aren't jsutified
+        /// Durée totale des absences non justifiées en minutes
         /// </summary>
         int totalDurationUnjustified;
 
         /// <summary>
-        /// The student
+        /// L'étudiant concerné
         /// </summary>
         Student student;
         #endregion
 
-        #region--Properties--
+        #region--Propriétés--
         public int TotalDuration { get => totalDuration; set => totalDuration = value; }
         public int TotalDurationUnjustified { get => totalDurationUnjustified; set => totalDurationUnjustified = value; }
         public string StudentLastName { get => this.student.LastName; set => this.student.LastName = value; }
         #endregion
 
-        #region--Constructor--
+        #region--Constructeur--
         public StatsAbsences(Student student, int Duration = 0, int totalUnjustified = 0)
         {
             this.student = student;

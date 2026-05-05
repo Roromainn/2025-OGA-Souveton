@@ -11,14 +11,11 @@ namespace OGAVM.ViewModel
 {
     public class StudentPresenceVM : INotifyPropertyChanged
     {
-        #region--Attributs--
-        /// <summary>
-        /// Flag pour le MVVM
-        /// </summary>
+        #region--Événements--
         public event PropertyChangedEventHandler? PropertyChanged;
         #endregion
 
-        #region--Attributes--
+        #region--Attributs--
         /// <summary>
         /// Si l'étudiant est absent
         /// </summary>
@@ -30,7 +27,7 @@ namespace OGAVM.ViewModel
         private readonly Student student;
         #endregion
 
-        #region--Properties--
+        #region--Propriétés--
         /// <summary>
         /// Nom complet formaté de l'étudiant
         /// </summary>
@@ -55,14 +52,14 @@ namespace OGAVM.ViewModel
         }
         #endregion
 
-        #region--Constructor--
+        #region--Constructeur--
         public StudentPresenceVM(Student student)
         {
             this.student = student;
         }
         #endregion
 
-        #region--Methods--
+        #region--Méthodes--
         private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
