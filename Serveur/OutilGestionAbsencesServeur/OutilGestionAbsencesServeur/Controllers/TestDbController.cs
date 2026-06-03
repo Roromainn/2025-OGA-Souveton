@@ -7,14 +7,20 @@ namespace OutilGestionAbsencesServeur.Controllers
     [Route("api/[controller]")]
     public class TestDbController : ControllerBase
     {
+        private DBConnection _db;
+
+        public TestDbController(DBConnection db)
+        {
+            _db = db;
+        }
+
         [HttpGet]
         public IActionResult TestConnection()
         {
             try
             {
-                var db = DBConnection.Instance();
-                bool connected = db.IsConnect();
-                db.Close();
+                bool connected = _db.IsConnect();
+                _db.Close();
 
                 if (connected)
                     return Ok("Connexion DB réussie.");
