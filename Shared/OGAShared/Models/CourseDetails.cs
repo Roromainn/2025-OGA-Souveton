@@ -1,51 +1,46 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace OGAShared.Models
 {
+    /// <summary>
+    /// Détails d'un cours
+    /// </summary>
     public class CourseDetails
     {
         #region--Attributs--
-        private DateTime courseDetail;
+        private DateTime dateDetail;
         private string courseName = string.Empty;
         private string teacherName = string.Empty;
-        public int duration;
+        private int duration;
         #endregion
 
-        #region--Propriétées--
+        #region--Propriétés--
         /// <summary>
         /// Date et heure du cours doit etre définie
         /// </summary>
-        public DateTime CourseDetail 
-        { 
+        public DateTime DateDetail
+        {
             get
             {
-                if (courseDetail == DateTime.MinValue)
-                {
-                    throw new ValidationException("La date du cours doit être définie.");
-                }
-                return courseDetail; 
-            } 
+                if (dateDetail == default)
+                    throw new InvalidOperationException("Date du cours obligatoire");
+                return dateDetail;
+            }
             set
             {
-                courseDetail = value; 
+                dateDetail = value; 
             }
         }
 
         /// <summary>
-        /// Nom du cours ne peut etr null ou vide et doit etre inferieur a 50 caracteres
+        /// Nom du cours
         /// </summary>
-        private string CourseName
+        public string CourseName
         {
             get
             {
                 if (string.IsNullOrWhiteSpace(courseName))
-                {
-                    throw new ValidationException("Le nom du cours doit être défini.");
-                }
+                    throw new InvalidOperationException("Nom du cours obligatoire");
                 if (courseName.Length > 50)
-                {
-                    throw new InvalidOperationException("Le nom du cours ne doit pas dépasser 50 caractères.");
-                }
+                    throw new InvalidOperationException("Nom du cours doit être ≤ 50 caractères");
                 return courseName;
             }
             set
@@ -60,34 +55,28 @@ namespace OGAShared.Models
         public string TeacherName
         {
             get
-            { 
+            {
                 if (string.IsNullOrWhiteSpace(teacherName))
-                {
-                    throw new ValidationException("Le nom du professeur doit être défini.");
-                }
+                    throw new InvalidOperationException("Nom du professeur obligatoire");
                 if (teacherName.Length > 50)
-                {
-                    throw new ValidationException("Le nom du professeur ne doit pas dépasser 50 caractères.");
-                }
+                    throw new InvalidOperationException("Nom du professeur doit être ≤ 50 caractères");
                 return teacherName;
             }
             set
             {
-                teacherName = value;
+                    teacherName = value;
             }
         }
 
         /// <summary>
         /// Durée du cours en minutes doit etre superieur a 0 minutes
         /// </summary>
-        public int Duration 
-        { 
+        public int Duration
+        {
             get
             {
-                if (duration < 0)
-                {
-                    throw new ValidationException("La durée du cours doit être supérieure à 0 minutes.");
-                }
+                if (duration <= 0)
+                    throw new InvalidOperationException("Durée doit être > 0 minutes");
                 return duration;
             }
             set 

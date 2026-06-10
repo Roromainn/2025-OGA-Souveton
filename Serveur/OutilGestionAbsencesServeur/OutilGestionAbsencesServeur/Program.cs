@@ -13,6 +13,7 @@ db.Password = Environment.GetEnvironmentVariable("DB_PASSWORD");
 builder.Services.AddControllers();
 builder.Services.AddSingleton(db);
 builder.Services.AddScoped<OutilGestionAbsencesServeur.Data.StudentRepository>();
+builder.Services.AddScoped<OutilGestionAbsencesServeur.Data.AbsenceRepository>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
