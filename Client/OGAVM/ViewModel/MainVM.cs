@@ -1,5 +1,5 @@
 using OGAMetier.Interfaces;
-using OGAMetier.Models;
+using OGAShared.Models;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;

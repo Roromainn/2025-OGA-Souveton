@@ -1,9 +1,11 @@
 ﻿using MySql.Data;
 using MySql.Data.MySqlClient;
 
-
 namespace OutilGestionAbsencesServeur.Data
 {
+    /// <summary>
+    /// Singleton pour gérer la connexion MySQL
+    /// </summary>
     public class DBConnection
     {
         private DBConnection()
@@ -11,104 +13,106 @@ namespace OutilGestionAbsencesServeur.Data
         }
 
         #region--Attributs--
-        private string server;
-
-        private string databaseName;
-
-        private string userName;
-
-        private string password;
-
-        private MySqlConnection connection;
-
-        private static DBConnection _instance = null;
+        private string server = string.Empty;
+        private string databaseName = string.Empty;
+        private string userName = string.Empty;
+        private string password = string.Empty;
+        private MySqlConnection? connection;
+        private static DBConnection? _instance;
         #endregion
 
         #region--Propriétés--
-        public string Server 
+        /// <summary>
+        /// Nom du serveur MySQL
+        /// </summary>
+        public string Server
         {
-            get 
-            {
-                return server;
-            } 
-            set
-            {
-                server = value; 
-            }
+            get => server;
+            set => server = value;
         }
+
+        /// <summary>
+        /// Nom de la base de données
+        /// </summary>
         public string DatabaseName
-        { 
-            get
-            {
-                return databaseName;
-            }
-            set
-            {
-                databaseName = value; 
-            }
-        }
-        public string UserName 
-        { 
-            get
-            {
-                return userName;
-            }
-            set
-            {
-                userName = value;
-            }
-        }
-        public string Password 
-        { 
-            get 
-            {
-                return password;
-            }
-            set
-            {
-                password = value;
-            }
-        }
-
-        public MySqlConnection Connection
         {
-            get
-            {
-                return connection;
-            }
-            set
-            {
-                connection = value;
-            }
+            get => databaseName;
+            set => databaseName = value;
         }
 
+        /// <summary>
+        /// Nom d'utilisateur MySQL
+        /// </summary>
+        public string UserName
+        {
+            get => userName;
+            set => userName = value;
+        }
+
+        /// <summary>
+        /// Mot de passe MySQL
+        /// </summary>
+        public string Password
+        {
+            get => password;
+            set => password = value;
+        }
+
+        /// <summary>
+        /// Connexion MySQL active
+        /// </summary>
+        public MySqlConnection? Connection
+        {
+            get => connection;
+            set => connection = value;
+        }
         #endregion
 
+        #region--Méthodes--
+        /// <summary>
+        /// Récupère l'instance unique du singleton
+        /// </summary>
+        /// <returns>Instance de DBConnection</returns>
+        public static DBConnection Instance()
+        {
+            if (_instance == null)
+                _instance = new DBConnection();
+            return _instance;
+        }
 
-            public static DBConnection Instance()
-            {
-                if (_instance == null)
-                    _instance = new DBConnection();
-                return _instance;
-            }
+        /// <summary>
+        /// Établit la connexion à la base de données si elle n'existe pas
+        /// </summary>
+        /// <returns>true si connecté, false sinon</returns>
+        public bool IsConnect()
+        {
+            bool connected = false;
 
-            public bool IsConnect()
+            if (Connection == null || Connection.State == System.Data.ConnectionState.Closed)
             {
-                if (Connection == null || Connection.State == System.Data.ConnectionState.Closed)
+                if (!string.IsNullOrEmpty(databaseName))
                 {
-                    if (String.IsNullOrEmpty(databaseName))
-                        return false;
                     string connstring = string.Format("Server={0}; database={1}; UID={2}; password={3}", Server, DatabaseName, UserName, Password);
                     Connection = new MySqlConnection(connstring);
                     Connection.Open();
+                    connected = true;
                 }
-
-                return true;
             }
-
-            public void Close()
+            else
             {
-                Connection?.Close();
+                connected = true;
             }
+
+            return connected;
         }
+
+        /// <summary>
+        /// Ferme la connexion à la base de données
+        /// </summary>
+        public void Close()
+        {
+            Connection?.Close();
+        }
+        #endregion
     }
+}

@@ -1,5 +1,5 @@
 using OGAMetier.Interfaces;
-using OGAMetier.Models;
+using OGAShared.Models;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -179,18 +179,40 @@ namespace OGAVM.ViewModel
         /// </summary>
         public bool TryValidate()
         {
-            try
+            bool res = true;
+            if (string.IsNullOrWhiteSpace(courseName))
             {
-                Course course = BuildCourse();
-                course.Validate();
-                ErrorMessage = null;
-                return true;
+                ErrorMessage = "Nom du cours obligatoire";
+                res = false;
             }
-            catch (ArgumentException ex)
+            if (courseName.Length > 50)
             {
-                ErrorMessage = ex.Message;
-                return false;
+                ErrorMessage = "Nom du cours ne doit pas dépasser 50 caractères";
+                res = false;
             }
+            if (string.IsNullOrWhiteSpace(teacherName))
+            {
+                ErrorMessage = "Nom du professeur obligatoire";
+                res = false;
+            }
+            if (teacherName.Length > 50)
+            {
+                ErrorMessage = "Nom du professeur ne doit pas dépasser 50 caractères";
+                res = false;
+            }
+            if (courseDate == default(DateTime))
+            {
+                ErrorMessage = "Date du cours obligatoire";
+                res = false;
+            }
+            if (duration <= 0)
+            {
+                ErrorMessage = "Durée du cours doit être supérieure à 0 minutes";
+                res = false;
+            }
+
+            ErrorMessage = null;
+            return res;
         }
         #endregion
     }

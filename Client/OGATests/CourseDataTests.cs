@@ -1,4 +1,4 @@
-using OGAMetier.Models;
+using OGAShared.Models;
 using OGAData;
 using Xunit;
 using System.IO;

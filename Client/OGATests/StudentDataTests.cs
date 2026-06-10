@@ -1,5 +1,5 @@
 using OGAData;
-using OGAMetier.Models;
+using OGAShared.Models;
 using System.Collections.ObjectModel;
 using Xunit;
 
