@@ -8,12 +8,12 @@ namespace OutilGestionAbsencesServeur.Data
     /// </summary>
     public class AbsenceRepository : IAbsenceRepository
     {
-        private readonly DBConnection _db;
+        private readonly IDBConnection _db;
 
         /// <summary>
         /// Initialise le repository avec une connexion à la base de données
         /// </summary>
-        public AbsenceRepository(DBConnection db)
+        public AbsenceRepository(IDBConnection db)
         {
             _db = db;
         }

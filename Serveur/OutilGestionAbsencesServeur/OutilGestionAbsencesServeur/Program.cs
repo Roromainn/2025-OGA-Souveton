@@ -2,7 +2,7 @@ DotNetEnv.Env.Load();
 
 var builder = WebApplication.CreateBuilder(args);
 
-var db = OutilGestionAbsencesServeur.Data.DBConnection.Instance();
+var db = new OutilGestionAbsencesServeur.Data.DBConnection();
 db.Server = Environment.GetEnvironmentVariable("DB_SERVER") ?? string.Empty;
 db.DatabaseName = Environment.GetEnvironmentVariable("DB_NAME") ?? string.Empty;
 db.UserName = Environment.GetEnvironmentVariable("DB_USER") ?? string.Empty;
@@ -11,7 +11,7 @@ db.Password = Environment.GetEnvironmentVariable("DB_PASSWORD") ?? string.Empty;
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddSingleton(db);
+builder.Services.AddSingleton<OutilGestionAbsencesServeur.Data.IDBConnection>(db);
 builder.Services.AddScoped<OutilGestionAbsencesServeur.Data.IStudentRepository, OutilGestionAbsencesServeur.Data.StudentRepository>();
 builder.Services.AddScoped<OutilGestionAbsencesServeur.Data.IAbsenceRepository, OutilGestionAbsencesServeur.Data.AbsenceRepository>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

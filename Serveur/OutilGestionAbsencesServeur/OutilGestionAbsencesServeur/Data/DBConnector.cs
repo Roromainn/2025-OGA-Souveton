@@ -4,21 +4,16 @@ using MySql.Data.MySqlClient;
 namespace OutilGestionAbsencesServeur.Data
 {
     /// <summary>
-    /// Singleton pour gérer la connexion MySQL
+    /// Gère la connexion MySQL. Le cycle de vie (instance unique) est assuré par l'injection de dépendances.
     /// </summary>
-    public class DBConnection
+    public class DBConnection : IDBConnection
     {
-        private DBConnection()
-        {
-        }
-
         #region--Attributs--
         private string server = string.Empty;
         private string databaseName = string.Empty;
         private string userName = string.Empty;
         private string password = string.Empty;
         private MySqlConnection? connection;
-        private static DBConnection? _instance;
         #endregion
 
         #region--Propriétés--
@@ -69,17 +64,6 @@ namespace OutilGestionAbsencesServeur.Data
         #endregion
 
         #region--Méthodes--
-        /// <summary>
-        /// Récupère l'instance unique du singleton
-        /// </summary>
-        /// <returns>Instance de DBConnection</returns>
-        public static DBConnection Instance()
-        {
-            if (_instance == null)
-                _instance = new DBConnection();
-            return _instance;
-        }
-
         /// <summary>
         /// Établit la connexion à la base de données si elle n'existe pas
         /// </summary>

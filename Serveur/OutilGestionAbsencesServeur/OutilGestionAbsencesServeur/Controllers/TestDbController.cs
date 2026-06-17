@@ -10,12 +10,12 @@ namespace OutilGestionAbsencesServeur.Controllers
     [Route("api/[controller]")]
     public class TestDbController : ControllerBase
     {
-        private readonly DBConnection _db;
+        private readonly IDBConnection _db;
 
         /// <summary>
         /// Initialise le contrôleur avec la connexion à la base de données
         /// </summary>
-        public TestDbController(DBConnection db)
+        public TestDbController(IDBConnection db)
         {
             _db = db;
         }
