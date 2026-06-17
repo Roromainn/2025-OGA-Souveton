@@ -11,12 +11,12 @@ namespace OutilGestionAbsencesServeur.Controllers
     [Route("[controller]")]
     public class StudentController : ControllerBase
     {
-        private readonly StudentRepository _studentRepository;
+        private readonly IStudentRepository _studentRepository;
 
         /// <summary>
         /// Initialise le contrôleur avec le repository des étudiants
         /// </summary>
-        public StudentController(StudentRepository studentRepository)
+        public StudentController(IStudentRepository studentRepository)
         {
             _studentRepository = studentRepository;
         }

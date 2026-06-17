@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutilGestionAbsencesServeur
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGAShared", "..\..\Shared\OGAShared\OGAShared.csproj", "{7CF49A77-4814-4CB7-B74E-724A35489E2B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutilGestionAbsencesServeur.Tests", "OutilGestionAbsencesServeur.Tests\OutilGestionAbsencesServeur.Tests.csproj", "{A1DA2D39-E353-499D-9F19-1D5800E7ADEE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,18 @@ Global
 		{7CF49A77-4814-4CB7-B74E-724A35489E2B}.Release|x64.Build.0 = Release|Any CPU
 		{7CF49A77-4814-4CB7-B74E-724A35489E2B}.Release|x86.ActiveCfg = Release|Any CPU
 		{7CF49A77-4814-4CB7-B74E-724A35489E2B}.Release|x86.Build.0 = Release|Any CPU
+		{A1DA2D39-E353-499D-9F19-1D5800E7ADEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1DA2D39-E353-499D-9F19-1D5800E7ADEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1DA2D39-E353-499D-9F19-1D5800E7ADEE}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A1DA2D39-E353-499D-9F19-1D5800E7ADEE}.Debug|x64.Build.0 = Debug|Any CPU
+		{A1DA2D39-E353-499D-9F19-1D5800E7ADEE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A1DA2D39-E353-499D-9F19-1D5800E7ADEE}.Debug|x86.Build.0 = Debug|Any CPU
+		{A1DA2D39-E353-499D-9F19-1D5800E7ADEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1DA2D39-E353-499D-9F19-1D5800E7ADEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1DA2D39-E353-499D-9F19-1D5800E7ADEE}.Release|x64.ActiveCfg = Release|Any CPU
+		{A1DA2D39-E353-499D-9F19-1D5800E7ADEE}.Release|x64.Build.0 = Release|Any CPU
+		{A1DA2D39-E353-499D-9F19-1D5800E7ADEE}.Release|x86.ActiveCfg = Release|Any CPU
+		{A1DA2D39-E353-499D-9F19-1D5800E7ADEE}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

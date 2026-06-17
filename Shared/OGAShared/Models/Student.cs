@@ -61,7 +61,7 @@ namespace OGAShared.Models
         /// </summary>
         public string? FirstName
         { get
-            { if (firstName.Length > 50)
+            { if (firstName != null && firstName.Length > 50)
                 { throw new ValidationException("Prénom doit être inférieur à 50 caractères"); }
                 return firstName;
             }

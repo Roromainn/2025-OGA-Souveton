@@ -6,7 +6,7 @@ namespace OutilGestionAbsencesServeur.Data
     /// <summary>
     /// Repository pour gérer les opérations sur les étudiants en base de données
     /// </summary>
-    public class StudentRepository
+    public class StudentRepository : IStudentRepository
     {
         private readonly DBConnection _db;
 
