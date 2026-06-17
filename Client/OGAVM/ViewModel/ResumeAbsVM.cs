@@ -1,4 +1,4 @@
-using OGAMetier.Models;
+using OGAShared.Models;
 
 namespace OGAVM.ViewModel
 {

@@ -1,5 +1,5 @@
 using OGAMetier.Interfaces;
-using OGAMetier.Models;
+using OGAShared.Models;
 
 namespace OGATests.Fakes
 {

@@ -1,4 +1,4 @@
-﻿using OGAMetier.Models;
+using OGAShared.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

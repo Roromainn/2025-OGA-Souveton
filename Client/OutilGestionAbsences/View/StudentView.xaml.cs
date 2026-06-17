@@ -1,4 +1,4 @@
-using OGAMetier.Models;
+using OGAShared.Models;
 using OGAVM.ViewModel;
 using System.Windows;
 

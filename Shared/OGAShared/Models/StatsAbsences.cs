@@ -1,40 +1,30 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OGAMetier.Models
+namespace OGAShared.Models
 {
-    /// <summary>
-    /// Statistiques des absences d'un √©tudiant
-    /// </summary>
     public class StatsAbsences
     {
         #region--Attributs--
-        /// <summary>
-        /// Dur√©e totale des absences en minutes
-        /// </summary>
         int totalDuration;
-
-        /// <summary>
-        /// Dur√©e totale des absences non justifi√©es en minutes
-        /// </summary>
         int totalDurationUnjustified;
-
-        /// <summary>
-        /// L'√©tudiant concern√©
-        /// </summary>
         Student student;
         #endregion
 
-        #region--Propri√©t√©s--
+
+        #region--PropriÈtÈes--
+        /// <summary>
+        /// DurÈe totale d'absence en minutes
+        /// </summary>
         public int TotalDuration { get => totalDuration; set => totalDuration = value; }
+        /// <summary>
+        /// DurÈe totale d'absence injustifiÈe en minutes
+        /// </summary>
         public int TotalDurationUnjustified { get => totalDurationUnjustified; set => totalDurationUnjustified = value; }
+        /// <summary>
+        /// Nom de l'Ètudiant
+        /// </summary>
         public string StudentLastName { get => this.student.LastName; set => this.student.LastName = value; }
         #endregion
 
-        #region--Constructeur--
+        #region--Constructeurs--
         public StatsAbsences(Student student, int Duration = 0, int totalUnjustified = 0)
         {
             this.student = student;

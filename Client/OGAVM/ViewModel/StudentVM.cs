@@ -1,4 +1,4 @@
-using OGAMetier.Models;
+using OGAShared.Models;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
@@ -92,17 +92,35 @@ namespace OGAVM.ViewModel
         /// </summary>
         public bool TryValidate()
         {
-            try
+            bool res= true;
+            if (string.IsNullOrWhiteSpace(student.Code))
             {
-                student.Validate();
-                ErrorMessage = null;
-                return true;
+                ErrorMessage = "Code étudiant obligatoire";
+                res = false;
             }
-            catch (ArgumentException ex)
+            if (student.Code.Length > 32)
             {
-                ErrorMessage = ex.Message;
-                return false;
+                ErrorMessage = "Code ne doit pas dépasser 32 caractères";
+                res = false;
             }
+            if (string.IsNullOrWhiteSpace(student.LastName))
+            {
+                ErrorMessage = "Nom de famille obligatoire";
+                res = false;
+            }
+            if (student.LastName.Length > 100)
+            {
+                ErrorMessage = "Nom de famille ne doit pas dépasser 100 caractères";
+                res = false;
+            }
+            if (!string.IsNullOrWhiteSpace(student.FirstName) && student.FirstName.Length > 100)
+            {
+                ErrorMessage = "Prénom ne doit pas dépasser 100 caractères";
+                res = false;
+            }
+
+            ErrorMessage = null;
+            return res;
         }
         #endregion
     }
